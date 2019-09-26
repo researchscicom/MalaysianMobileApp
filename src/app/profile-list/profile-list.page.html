@@ -7,7 +7,7 @@
 
 <ion-content class="ion-padding">
   <div class="search-div">
-    <button mat-raised-button color="primary">
+    <button mat-raised-button color="primary" (click)="addProfile()">
       <mat-icon>add</mat-icon>{{addBtn}}
     </button>
     <mat-form-field class="search-form-field" floatLabel="never">
@@ -20,8 +20,11 @@
 
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="listData">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
 
-      <!-- Position Column -->
       <ng-container matColumnDef="nickname">
         <th mat-header-cell *matHeaderCellDef> {{nickname}} </th>
         <td mat-cell *matCellDef="let element"> {{element.nickname}} </td>
@@ -30,7 +33,8 @@
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let row">
-          <button mat-icon-button color="accent"><mat-icon>launch</mat-icon></button>
+          <button mat-icon-button color="accent" (click)="onEdit(row)"><mat-icon>launch</mat-icon></button>
+          <button mat-icon-button color="warn" (click)="remove(row.id)"><mat-icon>delete_outline</mat-icon></button>
         </mat-cell>
       </ng-container>
 

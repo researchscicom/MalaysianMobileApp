@@ -1,8 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatDialog, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {MatDialog, MatDialogConfig, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {ProfileService} from '../services/profile.service';
 import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
+import {ProfileComponent} from './profile/profile.component';
+import {DialogService} from '../services/dialog.service';
+import {NotificationService} from '../services/notification.service';
 
 @Component({
   selector: 'app-profile-list',
@@ -15,12 +18,14 @@ export class ProfileListPage implements OnInit {
 
   profiles: Array<any>;
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['nickname', 'actions'];
+  displayedColumns: string[] = ['id', 'nickname', 'actions'];
   // @ts-ignore
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
-      private dialog: MatDialog, private profileService: ProfileService, private router: Router, private translate: TranslateService
+      private dialog: MatDialog, private profileService: ProfileService,
+      private router: Router, private translate: TranslateService, private dialogService: DialogService,
+      private notificationService: NotificationService
   ) { }
   searchKey: string;
   public title;
@@ -61,9 +66,50 @@ export class ProfileListPage implements OnInit {
   applyFilter() {
     this.listData.filter = this.searchKey.trim().toLowerCase();
   }
+  addProfile() {
+    this.profileService.initializeFormGroup();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '100%';
+    dialogConfig.height = '100%';
+    this.dialog.open(ProfileComponent, dialogConfig).afterClosed().subscribe(result => {
+      this.refresh();
+    });
+  }
+  onEdit(row) {
+    this.profileService.populateForm(row);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '100%';
+    dialogConfig.height = '100%';
+    this.dialog.open(ProfileComponent, dialogConfig).afterClosed().subscribe(result => {
+        this.refresh();
+    });
+    }
+  refresh() {
+    this.profileService.getProfiles().subscribe(
+        list => {
+          this.listData = new MatTableDataSource(list);
+          this.listData.sort = this.sort;
+          this.listData.paginator = this.paginator;
+        });
+  }
+  remove(id: string) {
+    this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
+        .afterClosed().subscribe(res => {
+        if (res) {
+            this.profileService.deleteProfile(id).subscribe(result => {
+            }, error => console.error(error));
+            this.ngOnInit();
+            this.notificationService.warn('Successfully Deleted!');
+        }
+        this.refresh();
+    });
+    }
 
   prevPage() {
     return this.router.navigateByUrl('dashboard');
   }
-
 }

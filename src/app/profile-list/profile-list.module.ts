@@ -7,14 +7,17 @@ import { IonicModule } from '@ionic/angular';
 
 import { ProfileListPage } from './profile-list.page';
 import {
-  MatButtonModule,
+  MatButtonModule, MatCardModule, MatDatepickerModule,
   MatDialogModule,
-  MatFormFieldModule,
+  MatFormFieldModule, MatGridListModule,
   MatIconModule,
   MatInputModule,
   MatPaginatorModule,
   MatTableModule
 } from '@angular/material';
+import {ProfileComponent} from './profile/profile.component';
+import {ConfirmComponent} from '../services/confirm/confirm.component';
+import {DialogService} from '../services/dialog.service';
 
 const routes: Routes = [
   {
@@ -36,8 +39,14 @@ const routes: Routes = [
     MatFormFieldModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
+    MatGridListModule,
+    MatDialogModule,
+    MatDatepickerModule
   ],
-  declarations: [ProfileListPage]
+  providers: [DialogService],
+  declarations: [ProfileListPage, ProfileComponent, ConfirmComponent],
+  entryComponents: [ProfileComponent, ConfirmComponent]
 })
 export class ProfileListPageModule {}
