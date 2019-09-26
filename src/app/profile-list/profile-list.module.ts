@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { ProfileListPage } from './profile-list.page';
-import {MatIconModule} from '@angular/material';
+import {MatDialogModule, MatIconModule, MatTableModule} from '@angular/material';
 
 const routes: Routes = [
   {
@@ -21,7 +21,9 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    MatTableModule
   ],
   declarations: [ProfileListPage]
 })
