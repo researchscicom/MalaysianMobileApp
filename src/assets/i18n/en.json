@@ -1,0 +1,44 @@
+{
+  "terms" : {
+    "title" 		: "Terms of Use",
+    "description" 	: "The E-Landing Card app allows travellers to prepare their declaration on a mobile device prior to their arrival in Malaysia.",
+    "rules": {
+      "rule1": "Privacy Notice",
+      "rule2": "Use of Content",
+      "rule3": "Contact Information"
+    },
+    "accept": "Accept",
+    "button": "Next"
+  },
+  "instructions" : {
+    "title" 		: "Instructions",
+    "description" 	: "How to Use this App.",
+    "skip": "Skip",
+    "steps": {
+      "step1": {
+        "title": "Step 1 : Create Profile",
+        "description": "Single or Multiple profiles can be created."
+      },
+      "step2": {
+        "title": "Step 2 - Answer Questions",
+        "description": "Questions related to Travel and Goods are presented."
+      },
+      "step3": {
+        "title": "Step 3 - Review",
+        "description": "Review entered details and confirm declaration."
+      },
+      "step4": {
+        "title": "Step 4 - QR Code",
+        "description": "A QR Code is generated on your mobile device to be scanned upon Entry into Malaysia."
+      }
+    },
+    "button": "Next"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "button1": "Traveller Profile",
+    "button2": "E-learning Card",
+    "button3": "QR Code",
+    "button4": "Instructions"
+  }
+}

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><mat-icon>dashboard</mat-icon> {{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <img src="../../../assets/images/scicom.png">
+  <p></p>
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4"></div>
+    <div class = "col-lg-4 col-md-4 col-sm-4"><button mat-stroked-button color="accent" class="btn btn-block" (click)="loadProfile()">
+      <img src="../../../assets/icon/traveler.png" width="50" height="50"><br/>{{button1}}</button></div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4"></div>
+    <div class = "col-lg-4 col-md-4 col-sm-4"><button mat-stroked-button color="accent" class="btn btn-block">
+      <img src="../../../assets/icon/eland.png" width="50" height="50"><br/>{{button2}}</button></div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4"></div>
+    <div class = "col-lg-4 col-md-4 col-sm-4"><button mat-stroked-button color="accent" class="btn btn-block">
+      <img src="../../../assets/icon/qr.png" width="50" height="50"><br/>{{button3}}</button></div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4"></div>
+    <div class = "col-lg-4 col-md-4 col-sm-4"><button mat-stroked-button color="accent" class="btn btn-block" (click)="prevPage()">
+      <img src="../../../assets/icon/instruction.png" width="50" height="50"><br/>{{button4}}</button></div>
+  </div>
+
+</ion-content>

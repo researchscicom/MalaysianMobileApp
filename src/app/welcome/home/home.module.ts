@@ -5,13 +5,24 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
-import {MatButtonToggleModule, MatCardModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule, MatIconModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatTooltipModule
+} from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatButtonModule,
+    MatTooltipModule,
     RouterModule.forChild([
       {
         path: '',
@@ -19,7 +30,8 @@ import {MatButtonToggleModule, MatCardModule} from '@angular/material';
       }
     ]),
     MatCardModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatIconModule
   ],
   declarations: [HomePage]
 })

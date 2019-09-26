@@ -1,0 +1,44 @@
+{
+  "terms" : {
+    "title" 		: "使用条款",
+    "description" 	: "登陆卡应用程序允许旅行者在抵达马来西亚之前在移动设备上准备其声明。",
+    "rules": {
+      "rule1": "隐私声明",
+      "rule2": "内容使用",
+      "rule3": "联系信息"
+    },
+    "accept": "接受",
+    "button": "下一个"
+  },
+  "instructions" : {
+    "title" 		: "说明",
+    "description" 	: "如何使用这个程序。",
+    "skip": "跳跃",
+    "steps": {
+      "step1": {
+        "title": "步骤1：建立设定档",
+        "description": "可以创建一个或多个配置文件。"
+      },
+      "step2": {
+        "title": "第2步-回答问题",
+        "description": "提出与旅行和商品有关的问题。"
+      },
+      "step3": {
+        "title": "第3步-审核",
+        "description": "查看输入的详细信息并确认声明。"
+      },
+      "step4": {
+        "title": "步骤4-QR码",
+        "description": "QR码会在您的移动设备上生成，以便在进入马来西亚时进行扫描。"
+      }
+    },
+    "button": "下一个"
+  },
+  "dashboard": {
+    "title": "仪表板",
+    "button1": "旅客资料",
+    "button2": "电子学习卡",
+    "button3": "二维码",
+    "button4": "说明"
+  }
+}

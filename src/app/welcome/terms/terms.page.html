@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <h3><a (click)="prevPage()"><mat-icon>keyboard_arrow_left</mat-icon></a>{{title}}</h3>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <img src="../../../assets/images/scicom.png">
+  <mat-card>
+    <hr>
+    <mat-card-content>
+      <h4>{{description}}</h4>
+
+      <mat-card>
+      <h3>
+      <b>
+        <mat-list>
+          <div *ngIf="rules">
+            <mat-list-item>{{rules.rule1}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>{{rules.rule2}}</mat-list-item>
+            <mat-divider></mat-divider>
+            <mat-list-item>{{rules.rule3}}</mat-list-item>
+          </div>
+        </mat-list>
+      </b>
+      </h3>
+      </mat-card>
+
+      <p></p>
+      <div class="row">
+        <div class="col-md-4 col-lg-4 col-sm-4"></div>
+        <div class="col-md-4 col-lg-4 col-sm-4">
+          <mat-slide-toggle (change)="clicked()">{{accept}}</mat-slide-toggle>
+        </div>
+      </div>
+      <br/>
+      <button mat-raised-button color="primary" class="btn btn-lg btn-block"
+              type="submit" [disabled]="!isCliked" (click)="nextPage()">
+        {{button}} <mat-icon class="btn-margin">keyboard_arrow_right</mat-icon></button>
+    </mat-card-content>
+
+
+  </mat-card>
+
+</ion-content>
+

@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <h3><a (click)="prevPage()"><mat-icon>keyboard_arrow_left</mat-icon></a> {{title}}</h3>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <img src="../../../assets/images/scicom.png">
+  <div class="d-flex flex-row-reverse bd-highlight">
+    <div class="p-2 bd-highlight"><button mat-raised-button color="accent" (click)="nextPage()">{{skip}} <mat-icon>fast_forward</mat-icon></button></div>
+  </div>
+  <h2>{{description}} </h2>
+
+<div *ngIf="steps">
+  <mat-list>
+      <mat-card>
+        <mat-card-header>
+          <b>{{steps.step1.title}}</b>
+        </mat-card-header>
+        <mat-card-content>
+            {{steps.step1.description}}
+        </mat-card-content>
+      </mat-card>
+      <br/>
+      <mat-card>
+        <mat-card-header>
+          <b>{{steps.step2.title}}</b>
+        </mat-card-header>
+        <mat-card-content>
+            {{steps.step2.description}}
+        </mat-card-content>
+      </mat-card>
+      <br/>
+      <mat-card>
+        <mat-card-header>
+          <b>{{steps.step3.title}}</b>
+        </mat-card-header>
+        <mat-card-content>
+            {{steps.step3.description}}
+        </mat-card-content>
+      </mat-card>
+      <br/>
+      <mat-card>
+        <mat-card-header>
+          <b>{{steps.step4.title}}</b>
+        </mat-card-header>
+        <mat-card-content>
+            {{steps.step4.description}}
+        </mat-card-content>
+      </mat-card>
+  </mat-list>
+</div>
+
+  <button mat-raised-button color="primary" class="btn btn-lg btn-block"
+          type="submit" (click)="nextPage()">
+    {{button}} <mat-icon class="btn-margin">keyboard_arrow_right</mat-icon></button>
+
+
+</ion-content>
