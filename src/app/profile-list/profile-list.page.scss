@@ -1,3 +1,39 @@
-mat-icon{
+.icon{
   color: #F88212;
 }
+table {
+  width: 100%;
+}
+
+.mat-dialog-container {
+  opacity: 10%;
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+/* filter controls */
+.search-div{
+  margin: 10px;
+}
+.search-form-field{
+  width: 60%;
+  margin-left: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+.search-form-field div.mat-form-field-underline {
+  display: none;
+}
+.search-form-field div.mat-form-field-infix{
+  border-top: 0px;
+}
+.search-form-field div.mat-form-field-wrapper{
+  padding-bottom: 0px;
+}
+.search-form-field div.mat-form-field-suffix button{
+  height: 32px;
+  width: 32px;
+}
+

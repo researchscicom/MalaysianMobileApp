@@ -40,5 +40,12 @@
     "button2": "电子学习卡",
     "button3": "二维码",
     "button4": "说明"
+  },
+  "manage-profile": {
+    "title": "管理个人资料",
+    "addBtn": "加",
+    "placeholder": "搜索",
+    "nickname": "昵称",
+    "paginatorText": "每页项目"
   }
 }

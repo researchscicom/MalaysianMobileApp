@@ -40,5 +40,12 @@
     "button2": "E-learning Card",
     "button3": "QR Code",
     "button4": "Instructions"
+  },
+  "manage-profile": {
+    "title": "Manage Profile",
+    "addBtn": "Add",
+    "placeholder": "Search",
+    "nickname": "Nickname.",
+    "paginatorText": "Items per page"
   }
 }

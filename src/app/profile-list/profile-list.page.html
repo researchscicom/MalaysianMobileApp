@@ -1,9 +1,44 @@
 <ion-header>
   <ion-toolbar>
-    <h3><ion-title><mat-icon>supervised_user_circle</mat-icon> Manage Profile</ion-title></h3>
+    <ion-title><h3><a (click)="prevPage()"><mat-icon>keyboard_arrow_left</mat-icon></a>
+      <mat-icon class="icon">supervised_user_circle</mat-icon>{{title}}</h3></ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <div class="search-div">
+    <button mat-raised-button color="primary">
+      <mat-icon>add</mat-icon>{{addBtn}}
+    </button>
+    <mat-form-field class="search-form-field" floatLabel="never">
+      <input matInput [(ngModel)]="searchKey" placeholder="{{placeholder}}" autocomplete="off" (keyup)="applyFilter()">
+      <button mat-button matSuffix mat-icon-button aria-label="Clear"*ngIf="searchKey"  (click)="onSearchClear()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="listData">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="nickname">
+        <th mat-header-cell *matHeaderCellDef> {{nickname}} </th>
+        <td mat-cell *matCellDef="let element"> {{element.nickname}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button mat-icon-button color="accent"><mat-icon>launch</mat-icon></button>
+        </mat-cell>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
+  </div>
 
 </ion-content>

@@ -17,8 +17,8 @@ export class DashboardPage implements OnInit {
   public button4;
   public language: string;
 
-  private _translateLanguage(): void {
-    this.translate.use(this.language);
+  private _translateLanguage(language): void {
+    this.translate.use(language);
     this._initialiseTranslation();
   }
   private _initialiseTranslation(): void {
@@ -32,7 +32,7 @@ export class DashboardPage implements OnInit {
   }
   ngOnInit() {
     this.language = localStorage.getItem('language');
-    this._translateLanguage();
+    this._translateLanguage(this.language);
   }
 
   prevPage() {
