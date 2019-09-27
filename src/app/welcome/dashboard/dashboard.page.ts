@@ -41,4 +41,10 @@ export class DashboardPage implements OnInit {
   loadProfile() {
      return this.router.navigateByUrl('profile-list');
   }
+  loadDLC() {
+    return this.router.navigateByUrl('dlc');
+  }
+  loadQR() {
+    return this.router.navigateByUrl('qrcode');
+  }
 }

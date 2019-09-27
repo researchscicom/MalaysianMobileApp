@@ -1,44 +1,67 @@
 {
   "terms" : {
-    "title" 		: "Terms of Use",
-    "description" 	: "The E-Landing Card app allows travellers to prepare their declaration on a mobile device prior to their arrival in Malaysia.",
+    "title" 		: "Syarat Penggunaan",
+    "description" 	: "Aplikasi Kad E-Landing membolehkan pengembara menyediakan perisytiharan mereka pada peranti mudah alih sebelum ketibaan mereka di Malaysia.",
     "rules": {
-      "rule1": "Privacy Notice",
-      "rule2": "Use of Content",
-      "rule3": "Contact Information"
+      "rule1": "Notis privasi",
+      "rule2": "Penggunaan Kandungan",
+      "rule3": "Maklumat perhubungan"
     },
-    "accept": "Accept",
-    "button": "Next"
+    "accept": "Terima",
+    "button": "Seterusnya"
   },
   "instructions" : {
-    "title" 		: "instructions",
-    "description" 	: "How to Use this App.",
-    "skip": "Skip",
+    "title" 		: "arahan",
+    "description" 	: "Cara Menggunakan App ini.",
+    "skip": "Langkau",
     "steps": {
       "step1": {
-        "title": "Step 1 : Create Profile",
-        "description": "Single or Multiple profiles can be created."
+        "title": "Langkah 1: Buat Profil",
+        "description": "Profil Single atau Pelbagai boleh dibuat."
       },
       "step2": {
-        "title": "Step 2 - Answer Questions",
-        "description": "Questions related to Travel and Goods are presented."
+        "title": "Langkah 2 - Soalan Jawapan",
+        "description": "Soalan yang berkaitan dengan Perjalanan dan Barangan dibentangkan."
       },
       "step3": {
-        "title": "Step 3 - Review",
-        "description": "Review entered details and confirm declaration."
+        "title": "Langkah 3 - Kajian",
+        "description": "Semak butiran masuk dan sahkan pengisytiharan."
       },
       "step4": {
-        "title": "Step 4 - QR Code",
-        "description": "A QR Code is generated on your mobile device to be scanned upon Entry into Malaysia."
+        "title": "Langkah 4 - Kod QR",
+        "description": "Kod QR dijana pada peranti mudah alih anda untuk diimbas apabila Masuk ke Malaysia."
       }
     },
-    "button": "Next"
+    "button": "Seterusnya"
   },
   "dashboard": {
-    "title": "Dashboard",
-    "button1": "Traveller Profile",
-    "button2": "E-learning Card",
-    "button3": "QR Code",
-    "button4": "Instructions"
+    "title": "Papan Pemuka",
+    "button1": "Profil Traveler",
+    "button2": "Kad E-pembelajaran",
+    "button3": "Kod QR",
+    "button4": "Arahan"
+  },
+  "manage-profile": {
+    "title": "Urus Profil",
+    "addBtn": "Tambah",
+    "placeholder": "Carian",
+    "nickname": "Nama samaran.",
+    "paginatorText": "Barangan setiap halaman"
+  },
+  "add-profile": {
+    "profile": "Profil baru",
+    "profile2": "Kemas kini Profil",
+    "nickname": "nama samaran",
+    "isMalaysian": 	"Adakah Malaysia",
+    "nationality": 	"Kewarganegaraan",
+    "country": 	"Negara",
+    "travelDocNo": "Perjalanan Dokumen Num",
+    "expiryDate": "Tarikh Keahlian",
+    "givenName": "Nama diberi",
+    "surname": "Nama keluarga",
+    "dob": "Tarikh lahir",
+    "male": "Lelaki",
+    "female": "Perempuan",
+    "identificationNo": "Nombor Pengenalpastian"
   }
 }

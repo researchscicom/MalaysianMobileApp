@@ -7,13 +7,13 @@ import { IonicModule } from '@ionic/angular';
 
 import { ProfileListPage } from './profile-list.page';
 import {
-  MatButtonModule, MatCardModule, MatDatepickerModule,
-  MatDialogModule,
-  MatFormFieldModule, MatGridListModule,
-  MatIconModule,
-  MatInputModule,
-  MatPaginatorModule,
-  MatTableModule
+    MatButtonModule, MatCardModule, MatDatepickerModule,
+    MatDialogModule,
+    MatFormFieldModule, MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatPaginatorModule, MatRadioModule, MatSelectModule, MatSlideToggleModule,
+    MatTableModule
 } from '@angular/material';
 import {ProfileComponent} from './profile/profile.component';
 import {ConfirmComponent} from '../services/confirm/confirm.component';
@@ -27,24 +27,27 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes),
-    MatIconModule,
-    MatDialogModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatCardModule,
-    MatGridListModule,
-    MatDialogModule,
-    MatDatepickerModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild(routes),
+        MatIconModule,
+        MatDialogModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatCardModule,
+        MatGridListModule,
+        MatDialogModule,
+        MatDatepickerModule,
+        MatSelectModule,
+        MatRadioModule,
+        MatSlideToggleModule
+    ],
   providers: [DialogService],
   declarations: [ProfileListPage, ProfileComponent, ConfirmComponent],
   entryComponents: [ProfileComponent, ConfirmComponent]

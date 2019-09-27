@@ -11,16 +11,16 @@ export class ProfileService {
   form: FormGroup = new FormGroup({
     id: new FormControl(null),
     nickname: new FormControl('', Validators.required),
-    isMalaysian: new FormControl('', Validators.required),
+    isMalaysian: new FormControl(''),
     nationality: new FormControl('', Validators.required),
     country: new FormControl('', Validators.required),
-    travelDocNum: new FormControl('', Validators.required),
+    travelDocNum: new FormControl('', [Validators.required, Validators.pattern('[0-9]*')]),
     expiryDate: new FormControl('', Validators.required),
     givenName: new FormControl('', Validators.required),
     surname: new FormControl('', Validators.required),
     dob: new FormControl('', Validators.required),
     gender: new FormControl('', Validators.required),
-    identificationNo: new FormControl('', Validators.required)
+    identificationNo: new FormControl('', [Validators.required, Validators.pattern('[0-9]*')])
   });
   baseUrl = 'http://10.15.90.196:8080/api/profile';
   getProfiles(): any {

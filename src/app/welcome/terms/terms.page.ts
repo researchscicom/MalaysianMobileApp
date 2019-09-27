@@ -43,6 +43,7 @@ export class TermsPage implements OnInit {
     return this.router.navigateByUrl('instruction');
   }
   prevPage() {
+    localStorage.setItem('language', '');
     return this.router.navigateByUrl('home');
   }
 

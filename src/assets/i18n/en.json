@@ -42,10 +42,26 @@
     "button4": "Instructions"
   },
   "manage-profile": {
-    "title": "Manage Profile",
+    "title": "Traveller Profile",
     "addBtn": "Add",
     "placeholder": "Search",
     "nickname": "Nickname.",
     "paginatorText": "Items per page"
+  },
+  "add-profile": {
+    "profile":"New Profile",
+    "profile2": "Update Profile",
+    "nickname": "Nickname",
+    "isMalaysian":"IsMalaysian",
+    "nationality":"Nationality",
+    "country":"Country",
+    "travelDocNo":"TravelDocNum",
+    "expiryDate":"ExpiryDate",
+    "givenName":"Given Name",
+    "surname":"Surname",
+    "dob":"DOB",
+    "male":"Male",
+    "female":"Female",
+    "identificationNo":"Identification Num"
   }
 }

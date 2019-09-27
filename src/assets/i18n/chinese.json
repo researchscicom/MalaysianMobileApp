@@ -29,7 +29,7 @@
       },
       "step4": {
         "title": "步骤4-QR码",
-        "description": "QR码会在您的移动设备上生成，以便在进入马来西亚时进行扫描。"
+        "description": "QR码会在您的移动设备上生成,以便在进入马来西亚时进行扫描。"
       }
     },
     "button": "下一个"
@@ -47,5 +47,21 @@
     "placeholder": "搜索",
     "nickname": "昵称",
     "paginatorText": "每页项目"
+  },
+  "add-profile": {
+    "profile":"新的配置文件",
+    "profile2": "更新个人信息",
+    "nickname": "昵称",
+    "isMalaysian":	"是马来西亚人",
+    "nationality":	"国籍",
+    "country":	"国家",
+    "travelDocNo":	"旅行医生号",
+    "expiryDate":	"到期日",
+    "givenName":	"给定的名称",
+    "surname":	"姓",
+    "dob":	"出生日期",
+    "male":	"男",
+    "female":	"女",
+    "identificationNo":	"识别号"
   }
 }
