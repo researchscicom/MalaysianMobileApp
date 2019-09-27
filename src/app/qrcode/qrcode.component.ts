@@ -9,6 +9,6 @@ export class QRCodeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
-
+  ngOnInit() {
+  }
 }

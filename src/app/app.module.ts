@@ -24,6 +24,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {ConfirmComponent} from './services/confirm/confirm.component';
+import {QRScanner} from '@ionic-native/qr-scanner';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {

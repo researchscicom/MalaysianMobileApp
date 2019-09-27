@@ -6,7 +6,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { QRCodePage } from './qrcode.page';
-import {MatIconModule} from '@angular/material';
+import {MatButtonModule, MatDialogModule, MatIconModule} from '@angular/material';
+import {QRCodeComponent} from './qrcode.component';
+import {QRScanner} from '@ionic-native/qr-scanner/ngx';
 
 const routes: Routes = [
   {
@@ -21,8 +23,12 @@ const routes: Routes = [
         FormsModule,
         IonicModule,
         RouterModule.forChild(routes),
-        MatIconModule
+        MatIconModule,
+        MatButtonModule,
+        MatDialogModule,
     ],
-  declarations: [QRCodePage]
+  declarations: [ QRCodePage, QRCodeComponent],
+    entryComponents: [QRCodeComponent],
+    providers: [ QRScanner]
 })
 export class QRCodePageModule {}

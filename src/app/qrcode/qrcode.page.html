@@ -1,10 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title><a (click)="prevPage()"><mat-icon>keyboard_arrow_left</mat-icon></a>
-      <img src="../../assets/icon/qr.png" width="30" height="30"> QR Code</ion-title>
+    <ion-title><h3><a (click)="prevPage()"><mat-icon>keyboard_arrow_left</mat-icon></a>
+      <img src="../../assets/icon/qr.png" width="30" height="30"> QR Code</h3></ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
-
+<ion-content class="ion-padding">
+  <img src="../../../assets/images/scicom.png">
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4"></div>
+    <div class = "col-lg-4 col-md-4 col-sm-4"><button mat-stroked-button color="accent" class="btn btn-block" (click)="onQR()">
+      <img src="../../../assets/icon/qr.png" width="50" height="50"><br/>QR Reader</button></div>
+  </div>
 </ion-content>
