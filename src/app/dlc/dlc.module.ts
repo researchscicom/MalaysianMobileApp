@@ -1,12 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
 import { DlcPage } from './dlc.page';
-import {MatIconModule} from '@angular/material';
+import {
+    MatButtonModule, MatCardModule, MatDatepickerModule,
+    MatDialog,
+    MatDialogModule,
+    MatFormFieldModule, MatGridListModule,
+    MatIconModule, MatInputModule,
+    MatPaginatorModule, MatRadioModule, MatSelectModule, MatSlideToggleModule,
+    MatTableModule
+} from '@angular/material';
+import {DlcComponent} from './dlc.component';
+import {DialogService} from '../services/dialog.service';
+import {ConfirmComponent} from '../services/confirm/confirm.component';
 
 const routes: Routes = [
   {
@@ -21,8 +32,24 @@ const routes: Routes = [
         FormsModule,
         IonicModule,
         RouterModule.forChild(routes),
-        MatIconModule
+        MatIconModule,
+        MatDialogModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatFormFieldModule,
+        MatButtonModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatCardModule,
+        MatGridListModule,
+        MatDialogModule,
+        MatDatepickerModule,
+        MatSelectModule,
+        MatRadioModule,
+        MatSlideToggleModule
     ],
-  declarations: [DlcPage]
+  declarations: [DlcPage, DlcComponent],
+    entryComponents: [DlcComponent ],
+    providers: [DialogService]
 })
 export class DlcPageModule {}
