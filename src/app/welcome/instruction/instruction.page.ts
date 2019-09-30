@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
+import {NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-instruction',
@@ -10,7 +11,7 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class InstructionPage implements OnInit {
 
-  constructor(private router: Router, private translate: TranslateService) { }
+  constructor(public navCtrl: NavController, private translate: TranslateService) { }
   public title;
   public description;
   public skip;
@@ -37,10 +38,10 @@ export class InstructionPage implements OnInit {
   }
 
   nextPage() {
-    return this.router.navigateByUrl('dashboard');
+    return this.navCtrl.navigateRoot('dashboard');
   }
   prevPage() {
-    return this.router.navigateByUrl('terms');
+    return this.navCtrl.navigateRoot('terms');
   }
 
 }

@@ -1,11 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialog, MatDialogConfig, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {ProfileService} from '../services/profile.service';
-import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
 import {ProfileComponent} from './profile/profile.component';
 import {DialogService} from '../services/dialog.service';
 import {NotificationService} from '../services/notification.service';
+import {NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-profile-list',
@@ -24,7 +24,7 @@ export class ProfileListPage implements OnInit {
 
   constructor(
       private dialog: MatDialog, private profileService: ProfileService,
-      private router: Router, private translate: TranslateService, private dialogService: DialogService,
+      private navCtrl: NavController, private translate: TranslateService, private dialogService: DialogService,
       private notificationService: NotificationService
   ) { }
   searchKey: string;
@@ -110,6 +110,6 @@ export class ProfileListPage implements OnInit {
     }
 
   prevPage() {
-    return this.router.navigateByUrl('dashboard');
+    return this.navCtrl.navigateRoot('dashboard');
   }
 }
