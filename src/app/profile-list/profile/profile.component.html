@@ -9,7 +9,7 @@
         <input type="hidden" formControlName="id">
         <mat-form-field>
           <input formControlName="nickname" matInput placeholder="{{nickname}}">
-          <mat-error>This field is mandatory.</mat-error>
+          <mat-error>{{mandatory}}</mat-error>
         </mat-form-field>
 
         <mat-slide-toggle [checked]="service.form.get('isMalaysian').value" (change)="setMalaysian()">{{isMalay}}</mat-slide-toggle>
@@ -20,7 +20,7 @@
                 <mat-option value="{{nationality}}">{{nationality}}</mat-option>
             </div>
         </mat-select>
-            <mat-error>This field is mandatory.</mat-error>
+            <mat-error>{{mandatory}}</mat-error>
         </mat-form-field>
 
         <mat-form-field>
@@ -29,12 +29,12 @@
                 <mat-option value="{{country}}">{{country}}</mat-option>
             </div>
           </mat-select>
-          <mat-error>This field is mandatory.</mat-error>
+          <mat-error>{{mandatory}}</mat-error>
         </mat-form-field>
 
         <mat-form-field>
           <input formControlName="travelDocNum" matInput placeholder="{{travelDocNo}}">
-            <mat-error *ngIf="service.form.controls['travelDocNum'].errors?.required">This field is mandatory.</mat-error>
+            <mat-error *ngIf="service.form.controls['travelDocNum'].errors?.required">{{mandatory}}</mat-error>
             <mat-error *ngIf="service.form.controls['travelDocNum'].errors?.pattern">TravelDocNum Should be Numeric</mat-error>
         </mat-form-field>
 
@@ -46,12 +46,12 @@
 
         <mat-form-field>
           <input formControlName="givenName" matInput placeholder="{{givenName}}">
-          <mat-error>This field is mandatory.</mat-error>
+          <mat-error>{{mandatory}}</mat-error>
         </mat-form-field>
 
         <mat-form-field>
           <input formControlName="surname" matInput placeholder="{{surname}}">
-          <mat-error>This field is mandatory.</mat-error>
+          <mat-error>{{mandatory}}</mat-error>
         </mat-form-field>
         <mat-form-field>
           <input  [matDatepicker]="dob" formControlName="dob" matInput placeholder="{{dob1}}">
@@ -65,14 +65,14 @@
 
         <mat-form-field>
           <input formControlName="identificationNo" matInput placeholder="{{identificationNo}}">
-            <mat-error *ngIf="service.form.controls['identificationNo'].errors?.required">This field is mandatory.</mat-error>
+            <mat-error *ngIf="service.form.controls['identificationNo'].errors?.required">{{mandatory}}</mat-error>
             <mat-error *ngIf="service.form.controls['identificationNo'].errors?.pattern">IdentificationNo Should be Numeric</mat-error>
         </mat-form-field>
 
         <br/>
         <div class="button-row">
-          <button mat-raised-button color="accent" type="submit" [disabled]="service.form.invalid">Submit</button>
-          <button mat-raised-button color="warn" [disabled]="service.form.controls['id'].value" (click)="onClear()">Clear</button>
+          <button mat-raised-button color="accent" type="submit" [disabled]="service.form.invalid">{{submit}}</button>
+          <button mat-raised-button color="warn" [disabled]="service.form.controls['id'].value" (click)="onClear()">{{clear}}</button>
         </div>
     </form>
   </mat-card-content>

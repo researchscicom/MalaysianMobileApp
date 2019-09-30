@@ -49,7 +49,7 @@ const routes: Routes = [
         MatSlideToggleModule
     ],
   declarations: [DlcPage, DlcComponent],
-    entryComponents: [DlcComponent ],
+    entryComponents: [DlcComponent],
     providers: [DialogService]
 })
 export class DlcPageModule {}

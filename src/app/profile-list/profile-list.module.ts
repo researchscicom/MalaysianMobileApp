@@ -49,7 +49,7 @@ const routes: Routes = [
         MatSlideToggleModule
     ],
   providers: [DialogService],
-  declarations: [ProfileListPage, ProfileComponent, ConfirmComponent],
-  entryComponents: [ProfileComponent, ConfirmComponent]
+  declarations: [ProfileListPage, ProfileComponent],
+  entryComponents: [ProfileComponent]
 })
 export class ProfileListPageModule {}

@@ -1,3 +1,88 @@
-<p>
-  dlc works!
-</p>
+<mat-card>
+    <mat-card-header>
+        <span>{{service.form.controls['id'].value? travel2: travel}}</span>
+        <span class="fill-remaining-space"></span>
+        <button class="btn-dialog-close" mat-stroked-button color="warn" (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+    </mat-card-header>
+    <mat-card-content>
+        <form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
+            <input type="hidden" formControlName="id">
+            <mat-form-field>
+                <input formControlName="nickname" matInput placeholder="{{nickname}}">
+                <mat-error>{{mandatory}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-select matNativeControl formControlName="arrivingFrom" placeholder="{{arrivingFrom}}">
+                    <div *ngFor="let country of countries">
+                        <mat-option value="{{country}}">{{country}}</mat-option>
+                    </div>
+                </mat-select>
+                <mat-error>{{mandatory}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-select matNativeControl formControlName="arrivalAirport"  placeholder="{{arrivalAirport}}">
+                    <div *ngFor="let airport of airports">
+                        <mat-option value="{{airport}}">{{airport}}</mat-option>
+                    </div>
+                </mat-select>
+                <mat-error>{{mandatory}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input formControlName="arrivingFlight" matInput placeholder="{{arrivingFlight}}">
+                <mat-error>{{mandatory}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input formControlName="purposeOfTravel" matInput placeholder="{{purposeOfTravel}}">
+                <mat-error>{{mandatory}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input formControlName="durationOfStay" matInput placeholder="{{durationOfStay}}">
+                <mat-error>{{mandatory}}</mat-error>
+            </mat-form-field>
+
+            <mat-label>{{commercialGood}} : </mat-label><br/>
+            <mat-radio-group formControlName="commercialGood" aria-label="">
+                <mat-radio-button value="Yes">{{yes}}</mat-radio-button>
+                <mat-radio-button value="No">{{no}}</mat-radio-button>
+            </mat-radio-group>
+            <p></p>
+            <mat-label>{{currencyExceedingValue}} : </mat-label><br/>
+            <mat-radio-group formControlName="currencyExceedingValue" aria-label="">
+                <mat-radio-button value="Yes">{{yes}}</mat-radio-button>
+                <mat-radio-button value="No">{{no}}</mat-radio-button>
+            </mat-radio-group>
+            <p></p>
+
+            <mat-label>{{liveAnimalOrPlant}} : </mat-label><br/>
+            <mat-radio-group formControlName="liveAnimalOrPlant" aria-label="">
+                <mat-radio-button value="Yes">{{yes}}</mat-radio-button>
+                <mat-radio-button value="No">{{no}}</mat-radio-button>
+            </mat-radio-group>
+            <p></p>
+
+            <mat-label>{{derivatives}} : </mat-label><br/>
+            <mat-radio-group formControlName="derivatives" aria-label="">
+                <mat-radio-button value="Yes">{{yes}}</mat-radio-button>
+                <mat-radio-button value="No">{{no}}</mat-radio-button>
+            </mat-radio-group>
+            <p></p>
+
+            <mat-label>{{firearms}} : </mat-label><br/>
+            <mat-radio-group formControlName="firearms" aria-label="">
+                <mat-radio-button value="Yes">{{yes}}</mat-radio-button>
+                <mat-radio-button value="No">{{no}}</mat-radio-button>
+            </mat-radio-group>
+
+            <br/>
+            <div class="button-row">
+                <button mat-raised-button color="accent" type="submit" [disabled]="service.form.invalid">{{submit}}</button>
+                <button mat-raised-button color="warn" [disabled]="service.form.controls['id'].value" (click)="onClear()">{{clear}}</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

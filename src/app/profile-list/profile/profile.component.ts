@@ -39,6 +39,9 @@ export class ProfileComponent implements OnInit {
   public male;
   public female;
   public identificationNo;
+  public submit;
+  public mandatory;
+  public clear;
   public language: string;
 
   private _translateLanguage(language): void {
@@ -61,6 +64,9 @@ export class ProfileComponent implements OnInit {
       this.male = this.translate.instant('add-profile.male');
       this.female = this.translate.instant('add-profile.female');
       this.identificationNo = this.translate.instant('add-profile.identificationNo');
+      this.submit = this.translate.instant('add-profile.submit');
+      this.mandatory = this.translate.instant('add-profile.mandatory');
+      this.clear = this.translate.instant('add-profile.clear');
     }, 250);
   }
 
@@ -87,10 +93,10 @@ export class ProfileComponent implements OnInit {
     if (this.service.form.valid) {
       if (this.service.form.get('id').value != null) {
         this.service.updateProfile(this.service.form.get('id').value, this.service.form.value).subscribe();
-        this.notificationService.success('Customer Update Successfully!');
+        this.notificationService.success('Profile Update Successfully!');
       } else {
         this.service.saveProfile(this.service.form.value).subscribe();
-        this.notificationService.success('New Customer added Successfully!');
+        this.notificationService.success('New Profile added Successfully!');
       }
       this.service.form.reset();
       this.service.initializeFormGroup();

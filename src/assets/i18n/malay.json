@@ -62,6 +62,36 @@
     "dob": "Tarikh lahir",
     "male": "Lelaki",
     "female": "Perempuan",
-    "identificationNo": "Nombor Pengenalpastian"
+    "identificationNo": "Nombor Pengenalpastian",
+    "submit": "Hantar",
+    "mandatory": "Bidang ini adalah wajib",
+    "clear" : "Jelas"
+  },
+  "manage-travel": {
+    "title": "Kad pendaratan E",
+    "addBtn": "Tambah",
+    "placeholder": "Carian",
+    "nickname": "Nama samaran.",
+    "paginatorText": "Barangan setiap halaman"
+  },
+  "add-travel": {
+    "travel":"Perjalanan baru",
+    "travel2": "Kemas kini Perjalanan",
+    "nickname":"Nama samaran",
+    "arrivingFrom":"Tiba dari",
+    "arrivalAirport":"Lapangan Terbang Ketibaan",
+    "arrivingFlight":"Tiba Penerbangan",
+    "purposeOfTravel":"Tujuan perjalanan",
+    "durationOfStay":"Tempoh penginapan",
+    "commercialGood":"Barangan Komersial",
+    "currencyExceedingValue":"Mata wang",
+    "liveAnimalOrPlant":"Melebihi nilai 2000 USD",
+    "derivatives":"Haiwan atau Tumbuhan Live",
+    "firearms":"Produk Haiwan atau Tanaman atau mana-mana Derivatif mereka",
+    "submit": "Hantar",
+    "mandatory": "Bidang ini adalah wajib",
+    "clear" : "Jelas",
+    "yes": "Ya",
+    "no": "Tidak"
   }
 }

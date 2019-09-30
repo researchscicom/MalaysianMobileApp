@@ -62,6 +62,36 @@
     "dob":	"出生日期",
     "male":	"男",
     "female":	"女",
-    "identificationNo":	"识别号"
+    "identificationNo":	"识别号",
+    "submit": "提交",
+    "mandatory": "此字段是必填字段",
+    "clear" : "明确"
+  },
+  "manage-travel": {
+    "title": "电子登陆卡",
+    "addBtn": "加",
+    "placeholder": "搜索",
+    "nickname": "昵称",
+    "paginatorText": "每页项目"
+  },
+  "add-travel": {
+    "travel":"新旅行",
+    "travel2": "更新旅行",
+    "nickname":"昵称",
+    "arrivingFrom":"来自",
+    "arrivalAirport":"到达机场",
+    "arrivingFlight":"到达航班",
+    "purposeOfTravel":"旅行目的",
+    "durationOfStay":"停留时间",
+    "commercialGood":"商业商品",
+    "currencyExceedingValue":"货币",
+    "liveAnimalOrPlant":"超过2000美元的价值",
+    "derivatives":"活的动物或植物",
+    "firearms":"动植物产品或其任何衍生物",
+    "submit": "提交",
+    "mandatory": "此字段是必填字段",
+    "clear" : "明确",
+    "yes": "是",
+    "no": "没有"
   }
 }

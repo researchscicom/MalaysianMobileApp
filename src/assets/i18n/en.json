@@ -62,6 +62,36 @@
     "dob":"DOB",
     "male":"Male",
     "female":"Female",
-    "identificationNo":"Identification Num"
+    "identificationNo":"Identification Num",
+    "submit": "Submit",
+    "mandatory": "This field is mandatory",
+    "clear" : "Clear"
+  },
+  "manage-travel": {
+    "title": "DLC",
+    "addBtn": "Add",
+    "placeholder": "Search",
+    "nickname": "Nickname.",
+    "paginatorText": "Items per page"
+  },
+  "add-travel": {
+    "travel":"New Travel",
+    "travel2": "Update Travel",
+    "nickname":"Nickname",
+    "arrivingFrom":"Arriving From",
+    "arrivalAirport":"Arrival Airport",
+    "arrivingFlight":"Arriving Flight",
+    "purposeOfTravel":"Purpose of Travel",
+    "durationOfStay":"Duration Of stay",
+    "commercialGood":"Commercial Goods",
+    "currencyExceedingValue":"Currency Exceeding the value of 2000 USD",
+    "liveAnimalOrPlant":"Live Animals or Plants",
+    "derivatives":"Animal or Plant Products or any of their Derivatives",
+    "firearms":"Firearms or Other Weapons",
+    "submit": "Submit",
+    "mandatory": "This field is mandatory",
+    "clear" : "Clear",
+    "yes": "Yes",
+    "no": "No"
   }
 }

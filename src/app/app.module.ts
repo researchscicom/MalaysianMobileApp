@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {
   MatButtonModule,
   MatButtonToggleModule,
-  MatCardModule,
+  MatCardModule, MatDialogModule,
   MatIconModule,
   MatInputModule,
   MatNativeDateModule,
@@ -32,8 +32,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent],
-  entryComponents: [],
+  declarations: [AppComponent, HeaderComponent, ConfirmComponent],
+  entryComponents: [ConfirmComponent],
   imports: [TranslateModule.forRoot({
     loader: {
       provide: TranslateLoader,
@@ -41,7 +41,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       deps: [HttpClient]
     }
     // tslint:disable-next-line:max-line-length
-  }), BrowserModule, MatNativeDateModule, MatSnackBarModule, HttpClientModule, ReactiveFormsModule, MatInputModule, BrowserAnimationsModule, IonicModule.forRoot(), AppRoutingModule, MatButtonModule, MatIconModule, MatButtonToggleModule, MatCardModule],
+  }), BrowserModule, MatDialogModule, MatNativeDateModule, MatSnackBarModule, HttpClientModule, ReactiveFormsModule, MatInputModule, BrowserAnimationsModule, IonicModule.forRoot(), AppRoutingModule, MatButtonModule, MatIconModule, MatButtonToggleModule, MatCardModule],
   providers: [
     StatusBar,
     SplashScreen,

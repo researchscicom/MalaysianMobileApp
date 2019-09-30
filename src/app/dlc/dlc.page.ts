@@ -42,11 +42,11 @@ export class DlcPage implements OnInit {
   }
   private _initialiseTranslation(): void {
     setTimeout(() => {
-      this.title 			  = this.translate.instant('manage-profile.title');
-      this.addBtn 	= this.translate.instant('manage-profile.addBtn');
-      this.placeholder 	= this.translate.instant('manage-profile.placeholder');
-      this.nickname 	= this.translate.instant('manage-profile.nickname');
-      this.paginatorText 	= this.translate.instant('manage-profile.paginatorText');
+      this.title 			  = this.translate.instant('manage-travel.title');
+      this.addBtn 	= this.translate.instant('manage-travel.addBtn');
+      this.placeholder 	= this.translate.instant('manage-travel.placeholder');
+      this.nickname 	= this.translate.instant('manage-travel.nickname');
+      this.paginatorText 	= this.translate.instant('manage-travel.paginatorText');
     }, 250);
   }
 
