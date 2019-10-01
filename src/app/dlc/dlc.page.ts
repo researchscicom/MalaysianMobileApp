@@ -1,11 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Router} from '@angular/router';
 import {MatDialog, MatDialogConfig, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {TravelService} from '../services/travel.service';
 import {TranslateService} from '@ngx-translate/core';
 import {DialogService} from '../services/dialog.service';
 import {NotificationService} from '../services/notification.service';
 import {DlcComponent} from './dlc.component';
+import {NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-dlc',
@@ -25,7 +25,7 @@ export class DlcPage implements OnInit {
 
   constructor(
       private dialog: MatDialog, private travelService: TravelService,
-      private router: Router, private translate: TranslateService, private dialogService: DialogService,
+      private navCtrl: NavController, private translate: TranslateService, private dialogService: DialogService,
       private notificationService: NotificationService
   ) { }
   searchKey: string;
@@ -111,7 +111,6 @@ export class DlcPage implements OnInit {
   }
 
   prevPage() {
-    return this.router.navigateByUrl('dashboard');
+    return this.navCtrl.navigateRoot('dashboard');
   }
-
 }

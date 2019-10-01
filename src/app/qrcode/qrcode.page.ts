@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material';
 import {QRScanner, QRScannerStatus} from '@ionic-native/qr-scanner/ngx';
+import {NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-qrcode',
@@ -10,12 +10,12 @@ import {QRScanner, QRScannerStatus} from '@ionic-native/qr-scanner/ngx';
 })
 export class QRCodePage implements OnInit {
 
-  constructor(private router: Router, private dialog: MatDialog, private qrScanner: QRScanner) { }
+  constructor(private navCtrl: NavController, private dialog: MatDialog, private qrScanner: QRScanner) { }
 
   ngOnInit() {
   }
   prevPage() {
-    return this.router.navigateByUrl('dashboard');
+    return this.navCtrl.navigateRoot('dashboard');
   }
   onQR() {
       this.qrScanner.prepare()

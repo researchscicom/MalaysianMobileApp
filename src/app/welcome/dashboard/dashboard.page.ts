@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
+import {NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +9,7 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class DashboardPage implements OnInit {
 
-  constructor(private router: Router, private translate: TranslateService) { }
+  constructor(public navCtrl: NavController, private translate: TranslateService) { }
   public title;
   public button1;
   public button2;
@@ -36,15 +36,15 @@ export class DashboardPage implements OnInit {
   }
 
   prevPage() {
-    return this.router.navigateByUrl('instruction');
+    return this.navCtrl.navigateRoot('instruction');
   }
   loadProfile() {
-     return this.router.navigateByUrl('profile-list');
+     return this.navCtrl.navigateRoot('profile-list');
   }
   loadDLC() {
-    return this.router.navigateByUrl('dlc');
+    return this.navCtrl.navigateRoot('dlc');
   }
   loadQR() {
-    return this.router.navigateByUrl('qrcode');
+    return this.navCtrl.navigateRoot('qrcode');
   }
 }

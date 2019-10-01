@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
+import {NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-terms',
@@ -10,7 +10,7 @@ import {TranslateService} from '@ngx-translate/core';
 export class TermsPage implements OnInit {
 
   isCliked = false;
-  constructor(private router: Router, private translate: TranslateService) { }
+  constructor(public navCtrl: NavController, private translate: TranslateService) { }
   public title;
   public description;
   public rules: any;
@@ -40,11 +40,11 @@ export class TermsPage implements OnInit {
   }
 
   nextPage() {
-    return this.router.navigateByUrl('instruction');
+    return this.navCtrl.navigateRoot('instruction');
   }
   prevPage() {
     localStorage.setItem('language', '');
-    return this.router.navigateByUrl('home');
+    return this.navCtrl.navigateRoot('home');
   }
 
 }

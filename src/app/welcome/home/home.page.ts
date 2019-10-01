@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
 import {TermsPage} from '../terms/terms.page';
+import {NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -9,18 +10,18 @@ import {TermsPage} from '../terms/terms.page';
 })
 export class HomePage {
 
-  constructor(private router: Router) {}
+  constructor(public navCtrl: NavController) {}
 
   nextPageEn() {
     localStorage.setItem('language', 'en');
-    this.router.navigateByUrl('terms');
+    this.navCtrl.navigateRoot('terms');
   }
   nextPageChinese() {
     localStorage.setItem('language', 'chinese');
-    this.router.navigateByUrl('terms');
+    this.navCtrl.navigateRoot('terms');
   }
   nextPageMalay() {
     localStorage.setItem('language', 'malay');
-    this.router.navigateByUrl('terms');
+    this.navCtrl.navigateRoot('terms');
   }
 }
