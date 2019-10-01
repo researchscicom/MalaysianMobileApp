@@ -1,3 +1,75 @@
-<p>
-  qrcode works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <h3><span>Profile Details</span></h3>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button color="warn" (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="service.form" class="normal-form">
+      <input type="hidden" readonly formControlName="id">
+      <mat-form-field>
+        <input formControlName="nickname" readonly matInput placeholder="{{nickname}}">
+        <mat-error>{{mandatory}}</mat-error>
+      </mat-form-field>
+
+      <mat-slide-toggle [checked]="service.form.get('isMalaysian').value">{{isMalay}}</mat-slide-toggle>
+
+      <mat-form-field>
+        <mat-select matNativeControl readonly formControlName="nationality" placeholder="{{nationality}}">
+          <div *ngFor="let nationality of nationalities">
+            <mat-option value="{{nationality}}">{{nationality}}</mat-option>
+          </div>
+        </mat-select>
+        <mat-error>{{mandatory}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select matNativeControl readonly formControlName="country"  placeholder="{{country}}">
+          <div *ngFor="let country of countries">
+            <mat-option value="{{country}}">{{country}}</mat-option>
+          </div>
+        </mat-select>
+        <mat-error>{{mandatory}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="travelDocNum" readonly matInput placeholder="{{travelDocNo}}">
+        <mat-error *ngIf="service.form.controls['travelDocNum'].errors?.required">{{mandatory}}</mat-error>
+        <mat-error *ngIf="service.form.controls['travelDocNum'].errors?.pattern">TravelDocNum Should be Numeric</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input  [matDatepicker]="expiryDate" readonly formControlName="expiryDate" matInput placeholder="{{expiryDate1}}">
+        <mat-datepicker-toggle matSuffix [for]="expiryDate"></mat-datepicker-toggle>
+        <mat-datepicker #expiryDate></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="givenName" readonly matInput placeholder="{{givenName}}">
+        <mat-error>{{mandatory}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input formControlName="surname" readonly matInput placeholder="{{surname}}">
+        <mat-error>{{mandatory}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input  [matDatepicker]="dob" readonly formControlName="dob" matInput placeholder="{{dob1}}">
+        <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+        <mat-datepicker #dob></mat-datepicker>
+      </mat-form-field>
+      <mat-radio-group formControlName="gender" readonly aria-label="Select an option">
+        <mat-radio-button value="Male">{{male}}</mat-radio-button>
+        <mat-radio-button value="Female">{{female}}</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-form-field>
+        <input formControlName="identificationNo" readonly matInput placeholder="{{identificationNo}}">
+        <mat-error *ngIf="service.form.controls['identificationNo'].errors?.required">{{mandatory}}</mat-error>
+        <mat-error *ngIf="service.form.controls['identificationNo'].errors?.pattern">IdentificationNo Should be Numeric</mat-error>
+      </mat-form-field>
+
+      <br/>
+    </form>
+  </mat-card-content>
+</mat-card>

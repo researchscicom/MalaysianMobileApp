@@ -3,6 +3,7 @@ import {TravelService} from '../services/travel.service';
 import {NotificationService} from '../services/notification.service';
 import {MatDialogRef} from '@angular/material';
 import {TranslateService} from '@ngx-translate/core';
+import {ModalController, NavController, ToastController} from '@ionic/angular';
 
 @Component({
   selector: 'app-dlc',
@@ -13,7 +14,7 @@ export class DlcComponent implements OnInit {
 
   constructor(private service: TravelService,
               private notificationService: NotificationService,
-              public dialogRef: MatDialogRef<DlcComponent>,
+              public modalController: ModalController,
               public translate: TranslateService
   ) {}
   // tslint:disable-next-line:max-line-length
@@ -94,10 +95,10 @@ export class DlcComponent implements OnInit {
     }
   }
 
-  onClose() {
+  async onClose() {
     this.service.form.reset();
     this.service.initializeFormGroup();
-    this.dialogRef.close();
+    return await this.modalController.dismiss(null, undefined);
   }
 
 }

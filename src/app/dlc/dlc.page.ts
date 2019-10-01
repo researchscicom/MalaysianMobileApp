@@ -5,7 +5,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {DialogService} from '../services/dialog.service';
 import {NotificationService} from '../services/notification.service';
 import {DlcComponent} from './dlc.component';
-import {NavController} from '@ionic/angular';
+import {ModalController, NavController} from '@ionic/angular';
 
 @Component({
   selector: 'app-dlc',
@@ -26,7 +26,8 @@ export class DlcPage implements OnInit {
   constructor(
       private dialog: MatDialog, private travelService: TravelService,
       private navCtrl: NavController, private translate: TranslateService, private dialogService: DialogService,
-      private notificationService: NotificationService
+      private notificationService: NotificationService,
+      private modalController: ModalController
   ) { }
   searchKey: string;
   public title;
@@ -67,27 +68,19 @@ export class DlcPage implements OnInit {
   applyFilter() {
     this.listData.filter = this.searchKey.trim().toLowerCase();
   }
-  addTravel() {
+  async addTravel() {
     this.travelService.initializeFormGroup();
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = '100%';
-    dialogConfig.height = '100%';
-    this.dialog.open(DlcComponent, dialogConfig).afterClosed().subscribe(result => {
-      this.refresh();
+    const modal = await this.modalController.create({
+      component: DlcComponent
     });
+    return await modal.present();
   }
-  onEdit(row) {
+  async onEdit(row) {
     this.travelService.populateForm(row);
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = '100%';
-    dialogConfig.height = '100%';
-    this.dialog.open(DlcComponent, dialogConfig).afterClosed().subscribe(result => {
-      this.refresh();
+    const modal = await this.modalController.create({
+      component: DlcComponent
     });
+    return await modal.present();
   }
   refresh() {
     this.travelService.getTravels().subscribe(

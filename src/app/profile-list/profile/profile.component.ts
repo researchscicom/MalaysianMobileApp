@@ -3,6 +3,7 @@ import {ProfileService} from '../../services/profile.service';
 import {MatDialogRef, MatTableDataSource} from '@angular/material';
 import {NotificationService} from '../../services/notification.service';
 import {TranslateService} from '@ngx-translate/core';
+import {ModalController} from '@ionic/angular';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +14,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(private service: ProfileService,
               private notificationService: NotificationService,
-              public dialogRef: MatDialogRef<ProfileComponent>,
+              public modalController: ModalController,
               public translate: TranslateService
   ) {}
   isMalaysian = false;
@@ -104,9 +105,9 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  onClose() {
+  async onClose() {
     this.service.form.reset();
     this.service.initializeFormGroup();
-    this.dialogRef.close();
+    return await this.modalController.dismiss();
   }
 }

@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'dashboard', loadChildren: './welcome/dashboard/dashboard.module#DashboardPageModule' },
   { path: 'profile-list', loadChildren: './profile-list/profile-list.module#ProfileListPageModule' },
   { path: 'dlc', loadChildren: './dlc/dlc.module#DlcPageModule' },
-  { path: 'qrcode', loadChildren: './qrcode/qrcode.module#QRCodePageModule' }
+  { path: 'qrcode', loadChildren: './qrcode/qrcode.module#QRCodePageModule' },
+  { path: 'dlc-add', loadChildren: './dlc/dlc-add/dlc-add.module#DlcAddPageModule' }
 ];
 
 @NgModule({

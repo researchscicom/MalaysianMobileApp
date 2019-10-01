@@ -26,6 +26,9 @@ export class ProfileService {
   getProfiles(): any {
     return this.http.get(this.baseUrl);
   }
+  getProfileByNickname(nickname): any {
+    return this.http.get(this.baseUrl + '/nickname/' + nickname );
+  }
   saveProfile(profile) {
     return this.http.post(this.baseUrl, profile);
   }

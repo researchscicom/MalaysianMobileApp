@@ -93,5 +93,11 @@
     "clear" : "Clear",
     "yes": "Yes",
     "no": "No"
+  },
+  "qr-code": {
+    "title": "QR Code",
+    "option": "Select Nickname to generate QR",
+    "btn1": "Generate QR",
+    "btn2": "Scan QR"
   }
 }

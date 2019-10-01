@@ -1,6 +1,6 @@
 <mat-card>
     <mat-card-header>
-        <span>{{service.form.controls['id'].value? travel2: travel}}</span>
+        <h3><span>{{service.form.controls['id'].value? travel2: travel}}</span></h3>
         <span class="fill-remaining-space"></span>
         <button class="btn-dialog-close" mat-stroked-button color="warn" (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
     </mat-card-header>
@@ -44,6 +44,8 @@
                 <input formControlName="durationOfStay" matInput placeholder="{{durationOfStay}}">
                 <mat-error>{{mandatory}}</mat-error>
             </mat-form-field>
+
+            <br/>
 
             <mat-label>{{commercialGood}} : </mat-label><br/>
             <mat-radio-group formControlName="commercialGood" aria-label="">

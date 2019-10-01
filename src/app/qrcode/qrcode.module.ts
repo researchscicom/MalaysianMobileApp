@@ -1,14 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
 import { QRCodePage } from './qrcode.page';
-import {MatButtonModule, MatDialogModule, MatIconModule} from '@angular/material';
+import {
+    MatButtonModule, MatCardModule,
+    MatDatepickerModule,
+    MatDialogModule, MatFormFieldModule,
+    MatIconModule, MatInputModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatSlideToggleModule
+} from '@angular/material';
 import {QRCodeComponent} from './qrcode.component';
-import {QRScanner} from '@ionic-native/qr-scanner/ngx';
+import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
+import {NgxQRCodeModule} from 'ngx-qrcode2';
+import {ProfileComponent} from '../profile-list/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -21,14 +31,23 @@ const routes: Routes = [
     imports: [
         CommonModule,
         FormsModule,
+        NgxQRCodeModule,
         IonicModule,
         RouterModule.forChild(routes),
         MatIconModule,
         MatButtonModule,
         MatDialogModule,
+        MatSelectModule,
+        MatRadioModule,
+        MatDatepickerModule,
+        MatSlideToggleModule,
+        MatCardModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatInputModule
     ],
   declarations: [ QRCodePage, QRCodeComponent],
     entryComponents: [QRCodeComponent],
-    providers: [ QRScanner]
+    providers: [ BarcodeScanner]
 })
 export class QRCodePageModule {}

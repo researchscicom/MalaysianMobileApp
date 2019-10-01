@@ -13,6 +13,7 @@ import {
   MatSlideToggleModule,
   MatTooltipModule
 } from '@angular/material';
+import {NativePageTransitions} from '@ionic-native/native-page-transitions';
 
 @NgModule({
   imports: [

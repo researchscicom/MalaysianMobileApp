@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-header>
-    <span>{{service.form.controls['id'].value? profile2: profile}}</span>
+      <h4><span>{{service.form.controls['id'].value? profile2: profile}}</span></h4>
     <span class="fill-remaining-space"></span>
     <button class="btn-dialog-close" mat-stroked-button color="warn" (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
   </mat-card-header>
@@ -11,7 +11,7 @@
           <input formControlName="nickname" matInput placeholder="{{nickname}}">
           <mat-error>{{mandatory}}</mat-error>
         </mat-form-field>
-
+        <br/>
         <mat-slide-toggle [checked]="service.form.get('isMalaysian').value" (change)="setMalaysian()">{{isMalay}}</mat-slide-toggle>
 
         <mat-form-field>
@@ -58,6 +58,7 @@
           <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
           <mat-datepicker #dob></mat-datepicker>
         </mat-form-field>
+        <br/>
         <mat-radio-group formControlName="gender" aria-label="Select an option">
             <mat-radio-button value="Male">{{male}}</mat-radio-button>
             <mat-radio-button value="Female">{{female}}</mat-radio-button>

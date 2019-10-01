@@ -5,7 +5,8 @@ import {TranslateService} from '@ngx-translate/core';
 import {ProfileComponent} from './profile/profile.component';
 import {DialogService} from '../services/dialog.service';
 import {NotificationService} from '../services/notification.service';
-import {NavController} from '@ionic/angular';
+import {ModalController, NavController} from '@ionic/angular';
+import {DlcComponent} from '../dlc/dlc.component';
 
 @Component({
   selector: 'app-profile-list',
@@ -23,7 +24,7 @@ export class ProfileListPage implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(
-      private dialog: MatDialog, private profileService: ProfileService,
+      private modalController: ModalController, private profileService: ProfileService,
       private navCtrl: NavController, private translate: TranslateService, private dialogService: DialogService,
       private notificationService: NotificationService
   ) { }
@@ -66,28 +67,20 @@ export class ProfileListPage implements OnInit {
   applyFilter() {
     this.listData.filter = this.searchKey.trim().toLowerCase();
   }
-  addProfile() {
+  async addProfile() {
     this.profileService.initializeFormGroup();
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = '100%';
-    dialogConfig.height = '100%';
-    this.dialog.open(ProfileComponent, dialogConfig).afterClosed().subscribe(result => {
-      this.refresh();
+    const modal = await this.modalController.create({
+      component: ProfileComponent
     });
+    return await modal.present();
   }
-  onEdit(row) {
+  async onEdit(row) {
     this.profileService.populateForm(row);
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = '100%';
-    dialogConfig.height = '100%';
-    this.dialog.open(ProfileComponent, dialogConfig).afterClosed().subscribe(result => {
-        this.refresh();
+    const modal = await this.modalController.create({
+      component: ProfileComponent
     });
-    }
+    return await modal.present();
+  }
   refresh() {
     this.profileService.getProfiles().subscribe(
         list => {
@@ -103,7 +96,7 @@ export class ProfileListPage implements OnInit {
             this.profileService.deleteProfile(id).subscribe(result => {
             }, error => console.error(error));
             this.ngOnInit();
-            this.notificationService.warn('Successfully Deleted!');
+            this.notificationService.success('Successfully Deleted!');
         }
         this.refresh();
     });
