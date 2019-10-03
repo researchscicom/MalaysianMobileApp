@@ -15,16 +15,14 @@ import {
   MatIconModule,
   MatInputModule,
   MatNativeDateModule,
-  MatSnackBarModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
-import {HeaderComponent} from './header/header.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {ConfirmComponent} from './services/confirm/confirm.component';
-import {NativePageTransitions} from '@ionic-native/native-page-transitions';
+import {NativePageTransitions} from '@ionic-native/native-page-transitions/ngx';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -32,7 +30,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, ConfirmComponent],
+  declarations: [AppComponent, ConfirmComponent],
   entryComponents: [ConfirmComponent],
   imports: [TranslateModule.forRoot({
     loader: {
@@ -41,13 +39,14 @@ export function HttpLoaderFactory(http: HttpClient) {
       deps: [HttpClient]
     }
     // tslint:disable-next-line:max-line-length
-  }), BrowserModule, MatDialogModule, MatNativeDateModule, MatSnackBarModule, HttpClientModule, ReactiveFormsModule, MatInputModule, BrowserAnimationsModule, IonicModule.forRoot(), AppRoutingModule, MatButtonModule, MatIconModule, MatButtonToggleModule, MatCardModule],
+  }), BrowserModule, MatDialogModule, MatNativeDateModule, HttpClientModule, ReactiveFormsModule, MatInputModule, BrowserAnimationsModule, IonicModule.forRoot(), AppRoutingModule, MatButtonModule, MatIconModule, MatButtonToggleModule, MatCardModule],
   providers: [
     StatusBar,
     SplashScreen,
+    NativePageTransitions,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],
-  exports: [HeaderComponent]
+  exports: []
 })
 export class AppModule {}

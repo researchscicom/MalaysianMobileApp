@@ -1,25 +1,27 @@
 import { Injectable } from '@angular/core';
-import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
+import {ToastController} from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotificationService {
 
-  constructor(public snackBar: MatSnackBar) { }
+  constructor(private toastController: ToastController) { }
 
-  config: MatSnackBarConfig = {
-    duration: 3000
-  }
-
-  success(msg) {
-    this.config.panelClass = ['notification', 'success'];
-    this.snackBar.open(msg, '', this.config);
-  }
-  warn(msg) {
-    this.snackBar.open(msg, '', {
-      duration: 2000,
-      panelClass: ['warn-snackbar']
+  async success(msg) {
+    const toast = await this.toastController.create({
+      message: msg,
+      color: 'primary',
+      duration: 2000
     });
+    toast.present();
+  }
+  async warn(msg) {
+    const toast = await this.toastController.create({
+      message: msg,
+      color: 'danger',
+      duration: 2000
+    });
+    toast.present();
   }
 }

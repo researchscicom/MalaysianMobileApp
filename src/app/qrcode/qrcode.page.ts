@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material';
-import {QRScanner, QRScannerStatus} from '@ionic-native/qr-scanner/ngx';
-import {NavController} from '@ionic/angular';
-
+import {ModalController, NavController} from '@ionic/angular';
+import {BarcodeScanner} from '@ionic-native/barcode-scanner/ngx';
+import {ProfileService} from '../services/profile.service';
+import {DlcComponent} from '../dlc/dlc.component';
+import {QRCodeComponent} from './qrcode.component';
+import {NotificationService} from '../services/notification.service';
 @Component({
   selector: 'app-qrcode',
   templateUrl: './qrcode.page.html',
@@ -10,33 +12,41 @@ import {NavController} from '@ionic/angular';
 })
 export class QRCodePage implements OnInit {
 
-  constructor(private navCtrl: NavController, private dialog: MatDialog, private qrScanner: QRScanner) { }
+  constructor(private navCtrl: NavController, private barcodeScanner: BarcodeScanner,
+              private profileService: ProfileService,
+              private notificationService: NotificationService,
+              private modalController: ModalController) { }
 
+  createdCode = null;
+  qrData = null;
+  profiles: any;
+  scannedCode = null;
   ngOnInit() {
+      this.profileService.getProfiles().subscribe(data => {
+          this.profiles = data;
+      });
   }
   prevPage() {
     return this.navCtrl.navigateRoot('dashboard');
   }
-  onQR() {
-      this.qrScanner.prepare()
-          .then((status: QRScannerStatus) => {
-            if (status.authorized) {
-              // camera permission was granted
-              // start scanning
-              const scanSub = this.qrScanner.scan().subscribe((text: string) => {
-                console.log('Scanned something', text);
-                this.qrScanner.hide(); // hide camera preview
-                scanSub.unsubscribe(); // stop scanning
-              });
-
-            } else if (status.denied) {
-              // camera permission was permanently denied
-              // you must use QRScanner.openSettings() method to guide the user to the settings page
-              // then they can grant the permission from there
-            } else {
-              // permission was denied, but not permanently. You can ask for permission again at a later time.
-            }
-          })
-          .catch((e: any) => console.log('Error is', e));
-    }
+  createCode() {
+      if (this.qrData != null) {
+          this.createdCode = this.qrData;
+          this.notificationService.success('QR Generated!');
+      } else {
+          this.notificationService.warn('Please select the Nickname!');
+      }
+  }
+  async scanCode() {
+      this.barcodeScanner.scan().then(barcodeData => {
+         this.scannedCode = barcodeData.text;
+         this.profileService.getProfileByNickname(this.scannedCode).subscribe(async data => {
+             this.profileService.populateForm(data);
+             const modal = await this.modalController.create({
+                 component: QRCodeComponent
+             });
+             return await modal.present();
+          });
+      });
+  }
 }

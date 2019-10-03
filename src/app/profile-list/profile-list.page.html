@@ -1,13 +1,14 @@
 <ion-header>
+  <ion-toolbar></ion-toolbar>
   <ion-toolbar>
     <ion-title><h3><a (click)="prevPage()"><mat-icon>keyboard_arrow_left</mat-icon></a>
       <img src="../../assets/icon/traveler.png" width="30" height="30"> {{title}}</h3></ion-title>
   </ion-toolbar>
+  <ion-img src="assets/images/travel-profile.jpg"></ion-img>
 </ion-header>
-
 <ion-content class="ion-padding">
   <div class="search-div">
-    <button mat-raised-button color="primary" (click)="addProfile()">
+    <button mat-raised-button class="btn"  color="primary" (click)="addProfile()">
       <mat-icon>add</mat-icon>{{addBtn}}
     </button>
     <mat-form-field class="search-form-field" floatLabel="never">
@@ -18,7 +19,8 @@
     </mat-form-field>
   </div>
 
-  <div class="mat-elevation-z8">
+<!--  <div class="mat-elevation-z8">-->
+  <ion-row>
     <table mat-table [dataSource]="listData">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> ID. </th>
@@ -43,6 +45,6 @@
     </table>
 
     <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
-  </div>
+  </ion-row>
 
 </ion-content>

@@ -1,40 +1,35 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-        <h3>Malaysian ELCA</h3>
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar></ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-    <img src="../../../assets/images/scicom.png">
-    <mat-card>
+    <ion-card class="welcome-card">
+        <img src="/assets/images/flight.jpg" alt="" />
+        <ion-card-header>
+            <ion-card-subtitle>Get Started</ion-card-subtitle>
+            <ion-card-title><h3>Welcome to Malaysia's <b>E-Landing</b> Card Application.</h3></ion-card-title>
+        </ion-card-header>
+    </ion-card>
+    <ion-card-header>
+        <h4>Please choose your preferred Language to proceed</h4>
+    </ion-card-header>
+    <ion-card-content>
         <mat-card>
-            <h2>"Welcome to Malaysia's <b>E-Landing</b> Card Application."</h2>
+        <div class="row">
+            <button mat-stroked-button color="accent" class="btn btn-block" (click)="nextPageEn()">
+            <img src="../../../assets/icon/en.png" width="50" height="50"><br/>English</button>
+        </div>
+        <div class="row">
+           <button mat-stroked-button color="accent" class="btn btn-block" (click)="nextPageChinese()">
+            <img src="../../../assets/icon/chinese.png" width="50" height="50" ><br/>Chinese</button>
+        </div>
+        <div class="row">
+            <button mat-stroked-button color="accent" class="btn btn-block" (click)="nextPageMalay()">
+            <img src="../../../assets/icon/malay.ico" width="50" height="50" ><br/>Malay</button>
+        </div>
         </mat-card>
-        <mat-card-header>
-            <h5>Please choose your preferred Language to proceed</h5>
-        </mat-card-header>
-        <hr>
-        <mat-card-content>
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4"></div>
-                <div class = "col-lg-4 col-md-4 col-sm-4"><button mat-stroked-button color="accent" class="btn btn-block" (click)="nextPageEn()">
-                    <img src="../../../assets/icon/en.png" width="50" height="50"><br/>English</button></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4"></div>
-                <div class = "col-lg-4 col-md-4 col-sm-4"><button mat-stroked-button color="accent" class="btn btn-block" (click)="nextPageChinese()">
-                    <img src="../../../assets/icon/chinese.png" width="50" height="50" ><br/>Chinese</button></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4"></div>
-                <div class = "col-lg-4 col-md-4 col-sm-4"><button mat-stroked-button color="accent" class="btn btn-block" (click)="nextPageMalay()">
-                    <img src="../../../assets/icon/malay.ico" width="50" height="50" ><br/>Malay</button></div>
-            </div>
+    </ion-card-content>
 
-        </mat-card-content>
-    </mat-card>
 
 </ion-content>
 

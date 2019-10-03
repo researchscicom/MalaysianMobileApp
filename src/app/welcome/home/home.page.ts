@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
-import {TermsPage} from '../terms/terms.page';
 import {NavController} from '@ionic/angular';
+import {NativePageTransitions, NativeTransitionOptions} from '@ionic-native/native-page-transitions/ngx';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +9,7 @@ import {NavController} from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController, public nativePageTransition: NativePageTransitions) {}
 
   nextPageEn() {
     localStorage.setItem('language', 'en');

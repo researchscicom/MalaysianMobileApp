@@ -8,7 +8,6 @@ import { IonicModule } from '@ionic/angular';
 import { DlcPage } from './dlc.page';
 import {
     MatButtonModule, MatCardModule, MatDatepickerModule,
-    MatDialog,
     MatDialogModule,
     MatFormFieldModule, MatGridListModule,
     MatIconModule, MatInputModule,
@@ -17,7 +16,6 @@ import {
 } from '@angular/material';
 import {DlcComponent} from './dlc.component';
 import {DialogService} from '../services/dialog.service';
-import {ConfirmComponent} from '../services/confirm/confirm.component';
 
 const routes: Routes = [
   {
