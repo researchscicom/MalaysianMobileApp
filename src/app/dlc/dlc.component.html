@@ -8,7 +8,11 @@
         <form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
             <input type="hidden" formControlName="id">
             <mat-form-field>
-                <input formControlName="nickname" matInput placeholder="{{nickname}}">
+                <mat-select matNativeControl formControlName="nickname" placeholder="{{nickname}}">
+                    <div *ngFor="let profile of profiles">
+                        <mat-option value="{{profile.nickname}}">{{profile.nickname}}</mat-option>
+                    </div>
+                </mat-select>
                 <mat-error>{{mandatory}}</mat-error>
             </mat-form-field>
 
