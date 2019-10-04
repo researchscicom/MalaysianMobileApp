@@ -47,4 +47,7 @@ export class DashboardPage implements OnInit {
   loadQR() {
     return this.navCtrl.navigateRoot('qrcode');
   }
+  goHome() {
+    return this.navCtrl.navigateRoot('home');
+  }
 }

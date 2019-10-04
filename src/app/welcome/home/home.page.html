@@ -14,20 +14,22 @@
         <h4>Please choose your preferred Language to proceed</h4>
     </ion-card-header>
     <ion-card-content>
-        <mat-card>
-        <div class="row">
+        <ion-row>
+            <ion-col col-md-4 col-sm-4 col-lg-4>
             <button mat-stroked-button color="accent" class="btn btn-block" (click)="nextPageEn()">
             <img src="../../../assets/icon/en.png" width="50" height="50"><br/>English</button>
-        </div>
-        <div class="row">
+            </ion-col>
+
+            <ion-col col-md-4 col-sm-4 col-lg-4>
            <button mat-stroked-button color="accent" class="btn btn-block" (click)="nextPageChinese()">
             <img src="../../../assets/icon/chinese.png" width="50" height="50" ><br/>Chinese</button>
-        </div>
-        <div class="row">
+            </ion-col>
+
+            <ion-col col-md-4 col-sm-4 col-lg-4>
             <button mat-stroked-button color="accent" class="btn btn-block" (click)="nextPageMalay()">
             <img src="../../../assets/icon/malay.ico" width="50" height="50" ><br/>Malay</button>
-        </div>
-        </mat-card>
+            </ion-col>
+        </ion-row>
     </ion-card-content>
 
 
