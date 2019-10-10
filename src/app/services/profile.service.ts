@@ -11,7 +11,6 @@ export class ProfileService {
   form: FormGroup = new FormGroup({
     id: new FormControl(null),
     nickname: new FormControl('', Validators.required),
-    isMalaysian: new FormControl(''),
     nationality: new FormControl('', Validators.required),
     country: new FormControl('', Validators.required),
     travelDocNum: new FormControl('', [Validators.required, Validators.pattern('[0-9]*')]),
@@ -43,7 +42,6 @@ export class ProfileService {
     this.form.setValue({
       id: null,
       nickname: '',
-      isMalaysian: '',
       nationality: '',
       country: '',
       travelDocNum: '',
@@ -63,7 +61,6 @@ export class ProfileService {
 export class Profile {
   id: string;
   nickname: string;
-  isMalaysian: string;
   nationality: string;
   country: string;
   travelDocNum: string;

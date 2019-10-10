@@ -72,6 +72,9 @@ export class ProfileListPage implements OnInit {
     const modal = await this.modalController.create({
       component: ProfileComponent
     });
+    modal.onDidDismiss().then(data => {
+      this.ngOnInit();
+    });
     return await modal.present();
   }
   async onEdit(row) {
@@ -79,15 +82,10 @@ export class ProfileListPage implements OnInit {
     const modal = await this.modalController.create({
       component: ProfileComponent
     });
+    modal.onDidDismiss().then(data => {
+      this.ngOnInit();
+    });
     return await modal.present();
-  }
-  refresh() {
-    this.profileService.getProfiles().subscribe(
-        list => {
-          this.listData = new MatTableDataSource(list);
-          this.listData.sort = this.sort;
-          this.listData.paginator = this.paginator;
-        });
   }
   remove(id: string) {
     this.dialogService.openConfirmDialog('Are you sure to delete this record ?')
@@ -98,7 +96,7 @@ export class ProfileListPage implements OnInit {
             this.ngOnInit();
             this.notificationService.success('Successfully Deleted!');
         }
-        this.refresh();
+        this.ngOnInit();
     });
     }
 

@@ -15,6 +15,7 @@ export class DashboardPage implements OnInit {
   public button2;
   public button3;
   public button4;
+  public exit;
   public language: string;
 
   private _translateLanguage(language): void {
@@ -28,6 +29,7 @@ export class DashboardPage implements OnInit {
       this.button2 	= this.translate.instant('dashboard.button2');
       this.button3 	= this.translate.instant('dashboard.button3');
       this.button4 	= this.translate.instant('dashboard.button4');
+      this.exit 	= this.translate.instant('dashboard.exit');
     }, 250);
   }
   ngOnInit() {

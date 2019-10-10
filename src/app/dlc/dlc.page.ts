@@ -73,12 +73,18 @@ export class DlcPage implements OnInit {
     const modal = await this.modalController.create({
       component: DlcComponent
     });
+    modal.onDidDismiss().then(data => {
+      this.ngOnInit();
+    });
     return await modal.present();
   }
   async onEdit(row) {
     this.travelService.populateForm(row);
     const modal = await this.modalController.create({
       component: DlcComponent
+    });
+    modal.onDidDismiss().then(data => {
+      this.ngOnInit();
     });
     return await modal.present();
   }

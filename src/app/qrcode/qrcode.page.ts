@@ -5,6 +5,7 @@ import {ProfileService} from '../services/profile.service';
 import {DlcComponent} from '../dlc/dlc.component';
 import {QRCodeComponent} from './qrcode.component';
 import {NotificationService} from '../services/notification.service';
+import {TravelService} from '../services/travel.service';
 @Component({
   selector: 'app-qrcode',
   templateUrl: './qrcode.page.html',
@@ -13,6 +14,7 @@ import {NotificationService} from '../services/notification.service';
 export class QRCodePage implements OnInit {
 
   constructor(private navCtrl: NavController, private barcodeScanner: BarcodeScanner,
+              private travelService: TravelService,
               private profileService: ProfileService,
               private notificationService: NotificationService,
               private modalController: ModalController) { }
@@ -40,8 +42,8 @@ export class QRCodePage implements OnInit {
   async scanCode() {
       this.barcodeScanner.scan().then(barcodeData => {
          this.scannedCode = barcodeData.text;
-         this.profileService.getProfileByNickname(this.scannedCode).subscribe(async data => {
-             this.profileService.populateForm(data);
+         this.travelService.getTravelByNickname(this.scannedCode).subscribe(async data => {
+             this.travelService.populateForm(data);
              const modal = await this.modalController.create({
                  component: QRCodeComponent
              });
