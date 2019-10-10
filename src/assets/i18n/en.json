@@ -39,7 +39,8 @@
     "button1": "Traveller Profile",
     "button2": "E-learning Card",
     "button3": "QR Code",
-    "button4": "Instructions"
+    "button4": "Instructions",
+    "exit": "Exit"
   },
   "manage-profile": {
     "title": "Traveller Profile",
@@ -75,8 +76,8 @@
     "paginatorText": "Items per page"
   },
   "add-travel": {
-    "travel":"New Travel",
-    "travel2": "Update Travel",
+    "travel":"New Travel Information for Declaration",
+    "travel2": "Update Travel Information for Declaration",
     "nickname":"Nickname",
     "arrivingFrom":"Arriving From",
     "arrivalAirport":"Arrival Airport",

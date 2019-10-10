@@ -1,9 +1,12 @@
-<mat-card>
   <mat-card-header>
       <h4><span>{{service.form.controls['id'].value? profile2: profile}}</span></h4>
     <span class="fill-remaining-space"></span>
     <button class="btn-dialog-close" mat-stroked-button color="warn" (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
   </mat-card-header>
+
+  <ion-content>
+  <ion-infinite-scroll>
+  <mat-card>
   <mat-card-content>
     <form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
         <input type="hidden" formControlName="id">
@@ -12,10 +15,10 @@
           <mat-error>{{mandatory}}</mat-error>
         </mat-form-field>
         <br/>
-        <mat-slide-toggle [checked]="service.form.get('isMalaysian').value" (change)="setMalaysian()">{{isMalay}}</mat-slide-toggle>
+        <mat-slide-toggle (change)="setMalaysian()" [checked]="isMalaysian">{{isMalay}}</mat-slide-toggle>
 
         <mat-form-field>
-        <mat-select matNativeControl formControlName="nationality" placeholder="{{nationality}}">
+        <mat-select matNativeControl formControlName="nationality" [disabled]="isMalaysian" placeholder="{{nationality}}">
             <div *ngFor="let nationality of nationalities">
                 <mat-option value="{{nationality}}">{{nationality}}</mat-option>
             </div>
@@ -77,4 +80,6 @@
         </div>
     </form>
   </mat-card-content>
-</mat-card>
+  </mat-card>
+  </ion-infinite-scroll>
+</ion-content>

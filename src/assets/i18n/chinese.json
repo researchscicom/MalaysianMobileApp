@@ -39,7 +39,8 @@
     "button1": "旅客资料",
     "button2": "电子学习卡",
     "button3": "二维码",
-    "button4": "说明"
+    "button4": "说明",
+    "exit": "出口"
   },
   "manage-profile": {
     "title": "管理个人资料",
@@ -75,8 +76,8 @@
     "paginatorText": "每页项目"
   },
   "add-travel": {
-    "travel":"新旅行",
-    "travel2": "更新旅行",
+    "travel":"申报新旅行信息",
+    "travel2": "更新旅行信息以进行报关",
     "nickname":"昵称",
     "arrivingFrom":"来自",
     "arrivalAirport":"到达机场",

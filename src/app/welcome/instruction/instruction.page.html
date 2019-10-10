@@ -15,49 +15,54 @@
   </div>
   <h2>{{description}} </h2>
 
-<div *ngIf="steps">
-  <mat-list>
-      <mat-card>
-        <mat-card-header>
-          <b>{{steps.step1.title}}</b>
-        </mat-card-header>
-        <mat-card-content>
-            {{steps.step1.description}}
-        </mat-card-content>
-      </mat-card>
-      <br/>
-      <mat-card>
-        <mat-card-header>
-          <b>{{steps.step2.title}}</b>
-        </mat-card-header>
-        <mat-card-content>
-            {{steps.step2.description}}
-        </mat-card-content>
-      </mat-card>
-      <br/>
-      <mat-card>
-        <mat-card-header>
-          <b>{{steps.step3.title}}</b>
-        </mat-card-header>
-        <mat-card-content>
-            {{steps.step3.description}}
-        </mat-card-content>
-      </mat-card>
-      <br/>
-      <mat-card>
-        <mat-card-header>
-          <b>{{steps.step4.title}}</b>
-        </mat-card-header>
-        <mat-card-content>
-            {{steps.step4.description}}
-        </mat-card-content>
-      </mat-card>
-  </mat-list>
+    <div *ngIf="steps">
+      <ion-slides pager>
+          <ion-slide>
+              <ion-card>
+                <mat-card-header>
+                  <b>{{steps.step1.title}}</b>
+                </mat-card-header>
+                <mat-card-content>
+                    {{steps.step1.description}}
+                </mat-card-content>
+              </ion-card>
+          </ion-slide>
+
+          <ion-slide>
+              <ion-card>
+                  <mat-card-header>
+                      <b>{{steps.step2.title}}</b>
+                  </mat-card-header>
+                  <mat-card-content>
+                      {{steps.step2.description}}
+                  </mat-card-content>
+              </ion-card>
+          </ion-slide>
+
+          <ion-slide>
+              <ion-card>
+                  <mat-card-header>
+                      <b>{{steps.step3.title}}</b>
+                  </mat-card-header>
+                  <mat-card-content>
+                      {{steps.step3.description}}
+                  </mat-card-content>
+              </ion-card>
+          </ion-slide>
+
+          <ion-slide>
+              <ion-card>
+                  <mat-card-header>
+                      <b>{{steps.step4.title}}</b>
+                  </mat-card-header>
+                  <mat-card-content>
+                      {{steps.step4.description}}
+                  </mat-card-content>
+              </ion-card>
+          </ion-slide>
+      </ion-slides>
 </div>
-
-  <button mat-raised-button color="primary" class="btn btn-lg btn-block"
-          type="submit" (click)="nextPage()">
-    {{button}} <mat-icon class="btn-margin">keyboard_arrow_right</mat-icon></button>
-
-
+<button mat-raised-button color="primary" class="btn btn-lg btn-block"
+      type="submit" (click)="nextPage()">
+{{button}} <mat-icon class="btn-margin">keyboard_arrow_right</mat-icon></button>
 </ion-content>

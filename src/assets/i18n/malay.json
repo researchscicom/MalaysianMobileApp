@@ -39,7 +39,8 @@
     "button1": "Profil Traveler",
     "button2": "Kad E-pembelajaran",
     "button3": "Kod QR",
-    "button4": "Arahan"
+    "button4": "Arahan",
+    "exit": "Keluar"
   },
   "manage-profile": {
     "title": "Urus Profil",
@@ -75,8 +76,8 @@
     "paginatorText": "Barangan setiap halaman"
   },
   "add-travel": {
-    "travel":"Perjalanan baru",
-    "travel2": "Kemas kini Perjalanan",
+    "travel":"Maklumat Perjalanan Baru untuk Perisytiharan",
+    "travel2": "Kemas kini Maklumat Perjalanan untuk Perisytiharan",
     "nickname":"Nama samaran",
     "arrivingFrom":"Tiba dari",
     "arrivalAirport":"Lapangan Terbang Ketibaan",

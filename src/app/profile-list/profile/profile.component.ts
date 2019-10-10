@@ -72,16 +72,17 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (this.service.form.get('id')) {
+      if (this.service.form.get('nationality').value === 'Malaysian') {
+        this.isMalaysian = true;
+      }
+    }
     this.language = localStorage.getItem('language');
     this._translateLanguage(this.language);
   }
   setMalaysian() {
-    if (this.service.form.get('id').value) {
-      this.isMalaysian = !this.service.form.get('isMalaysian').value;
-      this.service.form.get('isMalaysian').setValue(this.isMalaysian);
-    } else {
+      this.service.form.get('nationality').setValue('Malaysian');
       this.isMalaysian = !this.isMalaysian;
-    }
   }
 
   onClear() {
@@ -90,7 +91,6 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmit() {
-    this.service.form.get('isMalaysian').setValue(this.isMalaysian);
     if (this.service.form.valid) {
       if (this.service.form.get('id').value != null) {
         this.service.updateProfile(this.service.form.get('id').value, this.service.form.value).subscribe();
