@@ -11,7 +11,7 @@
         <form [formGroup]="service.form" class="normal-form">
             <input type="hidden" formControlName="id">
             <mat-form-field>
-                <mat-select matNativeControl formControlName="nickname" readonly placeholder="{{nickname}}">
+                <mat-select matNativeControl formControlName="nickname" disabled placeholder="{{nickname}}">
                     <div *ngFor="let profile of profiles">
                         <mat-option value="{{profile.nickname}}">{{profile.nickname}}</mat-option>
                     </div>
@@ -20,7 +20,7 @@
             </mat-form-field>
 
             <mat-form-field>
-                <mat-select matNativeControl formControlName="arrivingFrom" readonly placeholder="{{arrivingFrom}}">
+                <mat-select matNativeControl formControlName="arrivingFrom" disabled placeholder="{{arrivingFrom}}">
                     <div *ngFor="let country of countries">
                         <mat-option value="{{country}}">{{country}}</mat-option>
                     </div>
@@ -29,7 +29,7 @@
             </mat-form-field>
 
             <mat-form-field>
-                <mat-select matNativeControl formControlName="arrivalAirport" readonly  placeholder="{{arrivalAirport}}">
+                <mat-select matNativeControl formControlName="arrivalAirport" disabled  placeholder="{{arrivalAirport}}">
                     <div *ngFor="let airport of airports">
                         <mat-option value="{{airport}}">{{airport}}</mat-option>
                     </div>
@@ -55,34 +55,34 @@
             <br/>
 
             <mat-label>{{commercialGood}} : </mat-label><br/>
-            <mat-radio-group formControlName="commercialGood" aria-label="" ng-readonly>
+            <mat-radio-group formControlName="commercialGood" aria-label="" disabled>
                 <mat-radio-button value="Yes">{{yes}}</mat-radio-button>
                 <mat-radio-button value="No">{{no}}</mat-radio-button>
             </mat-radio-group>
             <p></p>
             <mat-label>{{currencyExceedingValue}} : </mat-label><br/>
-            <mat-radio-group formControlName="currencyExceedingValue" aria-label="" ng-readonly>
+            <mat-radio-group formControlName="currencyExceedingValue" aria-label="" disabled>
                 <mat-radio-button value="Yes">{{yes}}</mat-radio-button>
                 <mat-radio-button value="No">{{no}}</mat-radio-button>
             </mat-radio-group>
             <p></p>
 
             <mat-label>{{liveAnimalOrPlant}} : </mat-label><br/>
-            <mat-radio-group formControlName="liveAnimalOrPlant" aria-label="" ng-readonly>
+            <mat-radio-group formControlName="liveAnimalOrPlant" aria-label="" disabled>
                 <mat-radio-button value="Yes">{{yes}}</mat-radio-button>
                 <mat-radio-button value="No">{{no}}</mat-radio-button>
             </mat-radio-group>
             <p></p>
 
             <mat-label>{{derivatives}} : </mat-label><br/>
-            <mat-radio-group formControlName="derivatives" aria-label="" ng-readonly>
+            <mat-radio-group formControlName="derivatives" aria-label="" disabled>
                 <mat-radio-button value="Yes">{{yes}}</mat-radio-button>
                 <mat-radio-button value="No">{{no}}</mat-radio-button>
             </mat-radio-group>
             <p></p>
 
             <mat-label>{{firearms}} : </mat-label><br/>
-            <mat-radio-group formControlName="firearms" aria-label="" ng-readonly>
+            <mat-radio-group formControlName="firearms" aria-label="" disabled>
                 <mat-radio-button value="Yes">{{yes}}</mat-radio-button>
                 <mat-radio-button value="No">{{no}}</mat-radio-button>
             </mat-radio-group>

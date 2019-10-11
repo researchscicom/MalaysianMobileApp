@@ -6,45 +6,33 @@
   </ion-toolbar>
   <ion-img src="assets/images/travel-profile.jpg"></ion-img>
 </ion-header>
+
 <ion-content class="ion-padding">
   <div class="search-div">
     <button mat-raised-button class="btn"  color="primary" (click)="addProfile()">
       <mat-icon>add</mat-icon>{{addBtn}}
     </button>
-    <mat-form-field class="search-form-field" floatLabel="never">
-      <input matInput [(ngModel)]="searchKey" placeholder="{{placeholder}}" autocomplete="off" (keyup)="applyFilter()">
-      <button mat-button matSuffix mat-icon-button aria-label="Clear"*ngIf="searchKey"  (click)="onSearchClear()">
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
   </div>
 
-<!--  <div class="mat-elevation-z8">-->
-  <ion-row>
-    <table mat-table [dataSource]="listData">
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> ID. </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="nickname">
-        <th mat-header-cell *matHeaderCellDef> {{nickname}} </th>
-        <td mat-cell *matCellDef="let element"> {{element.nickname}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="actions">
-        <mat-header-cell *matHeaderCellDef></mat-header-cell>
-        <mat-cell *matCellDef="let row">
-          <button mat-icon-button color="accent" (click)="onEdit(row)"><mat-icon>launch</mat-icon></button>
-          <button mat-icon-button color="warn" (click)="remove(row.id)"><mat-icon>delete_outline</mat-icon></button>
-        </mat-cell>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-
-    <mat-paginator [pageSizeOptions]="[10, 20, 30]" showFirstLastButtons></mat-paginator>
-  </ion-row>
-
+  <ion-card>
+  <ion-list>
+    <ion-grid>
+      <ion-row style="background:#FFFFED">
+        <ion-col><h5>ID.</h5></ion-col>
+        <ion-col><h5>Nickname</h5></ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngFor="let profile of profiles">
+      <ion-row>
+        <ion-col col><h5>{{profile.id}}</h5></ion-col>
+        <ion-col ><h5>{{profile.nickname}}</h5> </ion-col>
+        <ion-col>
+          <button mat-icon-button color="accent" (click)="onEdit(profile)"><mat-icon>launch</mat-icon></button>
+          <button mat-icon-button color="warn" (click)="remove(profile.id)"><mat-icon>delete_outline</mat-icon></button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+  </ion-card>
 </ion-content>

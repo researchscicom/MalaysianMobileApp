@@ -33,9 +33,20 @@
   </ion-card>
 
   <ion-card *ngIf="scannedCode">
-    <ngx-qrcode [qrc-value]="scannedCode"></ngx-qrcode>
+<!--    <ngx-qrcode [qrc-value]="scannedCode"></ngx-qrcode>-->
     <ion-card-content>
-      <p>Scanned : {{scannedCode}}</p>
+      <p>Scanned : </p>
+      <ion-list>
+        <ion-item>
+          <ion-label>Travel Doc Num : {{scannedCode.travelDocNum}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Nationality : {{scannedCode.nationality}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Created Date : {{scannedCode.createdDate}}</ion-label>
+        </ion-item>
+      </ion-list>
     </ion-card-content>
   </ion-card>
 </ion-content>

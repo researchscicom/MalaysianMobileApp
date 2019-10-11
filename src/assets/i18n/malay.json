@@ -1,4 +1,11 @@
 {
+  "login": {
+    "title": "Log masuk",
+    "username": "Nama pengguna",
+    "password": "Kata laluan",
+    "locationText": "Lokasi",
+    "forget": "Lupa kata laluan"
+  },
   "terms" : {
     "title" 		: "Syarat Penggunaan",
     "description" 	: "Aplikasi Kad E-Landing membolehkan pengembara menyediakan perisytiharan mereka pada peranti mudah alih sebelum ketibaan mereka di Malaysia.",
@@ -84,6 +91,7 @@
     "arrivingFlight":"Tiba Penerbangan",
     "purposeOfTravel":"Tujuan perjalanan",
     "durationOfStay":"Tempoh penginapan",
+    "timeUnit": "Unit Masa",
     "commercialGood":"Barangan Komersial",
     "currencyExceedingValue":"Mata wang",
     "liveAnimalOrPlant":"Melebihi nilai 2000 USD",

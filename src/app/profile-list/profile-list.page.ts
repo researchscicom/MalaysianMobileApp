@@ -1,12 +1,10 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatDialog, MatDialogConfig, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
 import {ProfileService} from '../services/profile.service';
 import {TranslateService} from '@ngx-translate/core';
 import {ProfileComponent} from './profile/profile.component';
 import {DialogService} from '../services/dialog.service';
 import {NotificationService} from '../services/notification.service';
 import {ModalController, NavController} from '@ionic/angular';
-import {DlcComponent} from '../dlc/dlc.component';
 
 @Component({
   selector: 'app-profile-list',
@@ -14,21 +12,13 @@ import {DlcComponent} from '../dlc/dlc.component';
   styleUrls: ['./profile-list.page.scss'],
 })
 export class ProfileListPage implements OnInit {
-  // @ts-ignore
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
   profiles: Array<any>;
-  listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id', 'nickname', 'actions'];
-  // @ts-ignore
-  @ViewChild(MatSort) sort: MatSort;
-
   constructor(
       private modalController: ModalController, private profileService: ProfileService,
       private navCtrl: NavController, private translate: TranslateService, private dialogService: DialogService,
       private notificationService: NotificationService
   ) { }
-  searchKey: string;
+
   public title;
   public addBtn;
   public placeholder;
@@ -55,17 +45,8 @@ export class ProfileListPage implements OnInit {
     this._translateLanguage(this.language);
     this.profileService.getProfiles().subscribe(
         list => {
-          this.listData = new MatTableDataSource(list);
-          this.listData.sort = this.sort;
-          this.listData.paginator = this.paginator;
+          this.profiles = list;
         });
-  }
-  onSearchClear() {
-    this.searchKey = '';
-    this.applyFilter();
-  }
-  applyFilter() {
-    this.listData.filter = this.searchKey.trim().toLowerCase();
   }
   async addProfile() {
     this.profileService.initializeFormGroup();

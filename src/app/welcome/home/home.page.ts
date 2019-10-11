@@ -11,6 +11,12 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public nativePageTransition: NativePageTransitions) {}
 
+  slideOpts = {
+    initialSlide: 1,
+    speed: 400,
+    autoplay: true
+  };
+
   nextPageEn() {
     localStorage.setItem('language', 'en');
     this.navCtrl.navigateRoot('terms');

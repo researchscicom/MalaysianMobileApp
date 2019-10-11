@@ -4,7 +4,20 @@
 
 <ion-content class="ion-padding">
     <ion-card class="welcome-card">
-        <img src="/assets/images/flight.jpg" alt="" />
+        <ion-slides pager="true" [options]="slideOpts">
+            <ion-slide>
+                <img src="/assets/images/slides/1.jpg" alt="" />
+            </ion-slide>
+            <ion-slide>
+                <img src="/assets/images/slides/2.jpg" alt="" />
+            </ion-slide>
+            <ion-slide>
+                <img src="/assets/images/slides/3.jpg" alt="" />
+            </ion-slide>
+            <ion-slide>
+                <img src="/assets/images/slides/4.jpg" alt="" />
+            </ion-slide>
+        </ion-slides>
         <ion-card-header>
             <ion-card-subtitle>Get Started</ion-card-subtitle>
             <ion-card-title><h3>Welcome to Malaysia's <b>E-Landing</b> Card Application.</h3></ion-card-title>

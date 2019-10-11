@@ -1,5 +1,5 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatDialog, MatDialogConfig, MatPaginator, MatSort, MatTableDataSource} from '@angular/material';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material';
 import {TravelService} from '../services/travel.service';
 import {TranslateService} from '@ngx-translate/core';
 import {DialogService} from '../services/dialog.service';
@@ -13,15 +13,7 @@ import {ModalController, NavController} from '@ionic/angular';
   styleUrls: ['./dlc.page.scss'],
 })
 export class DlcPage implements OnInit {
-
-  // @ts-ignore
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
   travels: Array<any>;
-  listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id', 'nickname', 'actions'];
-  // @ts-ignore
-  @ViewChild(MatSort) sort: MatSort;
 
   constructor(
       private dialog: MatDialog, private travelService: TravelService,
@@ -29,7 +21,6 @@ export class DlcPage implements OnInit {
       private notificationService: NotificationService,
       private modalController: ModalController
   ) { }
-  searchKey: string;
   public title;
   public addBtn;
   public placeholder;
@@ -56,17 +47,8 @@ export class DlcPage implements OnInit {
     this._translateLanguage(this.language);
     this.travelService.getTravels().subscribe(
         list => {
-          this.listData = new MatTableDataSource(list);
-          this.listData.sort = this.sort;
-          this.listData.paginator = this.paginator;
+          this.travels = list;
         });
-  }
-  onSearchClear() {
-    this.searchKey = '';
-    this.applyFilter();
-  }
-  applyFilter() {
-    this.listData.filter = this.searchKey.trim().toLowerCase();
   }
   async addTravel() {
     this.travelService.initializeFormGroup();
@@ -91,9 +73,7 @@ export class DlcPage implements OnInit {
   refresh() {
     this.travelService.getTravels().subscribe(
         list => {
-          this.listData = new MatTableDataSource(list);
-          this.listData.sort = this.sort;
-          this.listData.paginator = this.paginator;
+          this.travels = list;
         });
   }
   remove(id: string) {
@@ -108,7 +88,6 @@ export class DlcPage implements OnInit {
       this.refresh();
     });
   }
-
   prevPage() {
     return this.navCtrl.navigateRoot('dashboard');
   }

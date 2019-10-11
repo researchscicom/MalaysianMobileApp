@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-title>
+      <h3><a (click)="prevPage()"><mat-icon>keyboard_arrow_left</mat-icon></a>
+        <ion-icon name="lock"></ion-icon> {{title}}</h3>
+    </ion-title>
+  </ion-toolbar>
+  <img src="assets/images/flight.jpg">
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-avatar></ion-avatar>
+    <form [formGroup]="service.form" (ngSubmit)="onLogin()" autocomplete="on">
+      <mat-card class="mat-card-login">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon svgIcon="lock" class="ico-lock"></mat-icon>
+            {{title}}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+
+          <div fxLayout="row" class="mb-10">
+            <mat-icon svgIcon="person" class="ico-mat-field"></mat-icon>
+            <mat-form-field class="mat-width-full">
+              <mat-label>{{username}}</mat-label>
+              <input matInput placeholder="{{username}}" formControlName="userName" (blur)="onEnable()" autocomplete="off"/>
+              <input class="mat-hide" />
+              <mat-error *ngIf="service.form.get('userName').hasError('required') ">
+                Required.
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row" class="mb-10">
+            <mat-icon svgIcon="lock" class="ico-mat-field"></mat-icon>
+            <mat-form-field class="mat-width-full">
+              <mat-label>{{password}}</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" autocomplete="off"/>
+              <mat-icon svgIcon="{{hide ? 'visibility' : 'visibility_off'}}" matSuffix (click)="hide = !hide"></mat-icon>
+              <mat-error *ngIf="service.form.get('password').hasError('required') ">
+                Required.
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div fxLayout="row" class="mb-10">
+            <mat-icon svgIcon="location_on" class="ico-mat-field"></mat-icon>
+            <mat-form-field class="mat-width-full">
+              <mat-select placeholder="{{locationText}}" formControlName="location" id="locations">
+                <mat-option *ngFor="let location of locations" [value]="location.code">
+                  {{location.name}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="service.form.get('location').hasError('required') ">
+                Required.
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <button mat-raised-button color="primary" class="btn" [disabled]="service.form.invalid">{{title}}</button>
+
+          <button mat-icon-button type="button" *ngIf="false">
+            <mat-icon svgIcon="fingerprint" aria-label="Finger print" class="ico-f-print"></mat-icon>
+          </button>
+        </mat-card-actions>
+        <div align="end" *ngIf="false" class="forgot-pw"><a [ngClass]="{'disabled':!usable}"><span>{{forget}}</span></a>
+        </div>
+      </mat-card>
+    </form>
+</ion-content>
