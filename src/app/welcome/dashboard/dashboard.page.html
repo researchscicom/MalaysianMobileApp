@@ -3,36 +3,32 @@
   <ion-toolbar>
     <ion-row>
     <ion-title><h3><img src="../../../assets/icon/dashboard.png" width="30" height="30"> {{title}}</h3></ion-title>
-    <ion-col col-sm-3 col-md-3 col-lg-3></ion-col><ion-button (click)="goHome()"><ion-icon name="home"></ion-icon> </ion-button> |
+        <ion-button (click)="logOut()"><ion-icon name="log-out"></ion-icon></ion-button>
     </ion-row>
   </ion-toolbar>
+    <img src="assets/images/flight.jpg">
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-card>
-    <img src="assets/images/flight.jpg">
-  </ion-card>
-
   <ion-row>
       <button mat-stroked-button color="accent" class="btn btn-block" (click)="loadProfile()">
       <img src="../../../assets/icon/traveler.png" width="50" height="50"><br/>{{button1}}</button>
-  </ion-row>
-
+  </ion-row><br/>
   <ion-row>
       <button mat-stroked-button color="accent" class="btn btn-block" (click)="loadDLC()">
       <img src="../../../assets/icon/eland.png" width="50" height="50"><br/>{{button2}}</button>
-  </ion-row>
+  </ion-row><br/>
 
   <ion-row>
       <button mat-stroked-button color="accent" class="btn btn-block" (click)="loadQR()">
       <img src="../../../assets/icon/qr.png" width="50" height="50"><br/>{{button3}}</button>
-  </ion-row>
+  </ion-row><br/>
 
   <ion-row>
       <button mat-stroked-button color="accent" class="btn btn-block" (click)="prevPage()">
       <img src="../../../assets/icon/instruction.png" width="50" height="50"><br/>{{button4}}</button>
   </ion-row>
-  <ion-avatar></ion-avatar>
+  <br/>
   <ion-row>
     <ion-col col-md-3></ion-col>
     <ion-button color="danger">{{exit}}</ion-button>

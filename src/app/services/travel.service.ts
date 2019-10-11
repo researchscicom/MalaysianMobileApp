@@ -14,7 +14,8 @@ export class TravelService {
     arrivalAirport: new FormControl('', Validators.required),
     arrivingFlight: new FormControl('', Validators.required),
     purposeOfTravel: new FormControl('', Validators.required),
-    durationOfStay: new FormControl('', Validators.required),
+    timeUnit: new FormControl(''),
+    durationOfStay: new FormControl(''),
     commercialGood: new FormControl('', Validators.required),
     currencyExceedingValue: new FormControl('', Validators.required),
     liveAnimalOrPlant: new FormControl('', Validators.required),
@@ -26,7 +27,10 @@ export class TravelService {
     return this.http.get(this.baseUrl);
   }
   getTravelByNickname(nickname): any {
-    return this.http.get(this.baseUrl + '/nickname/' + nickname);
+    // tslint:disable-next-line:triple-equals
+    if (nickname != '') {
+      return this.http.get(this.baseUrl + '/nickname/' + nickname);
+    }
   }
   saveTravel(travel) {
     return this.http.post(this.baseUrl, travel);
@@ -46,6 +50,7 @@ export class TravelService {
       arrivalAirport: '',
       arrivingFlight: '',
       purposeOfTravel: '',
+      timeUnit: '',
       durationOfStay: '',
       commercialGood: '',
       currencyExceedingValue: '',
@@ -66,6 +71,7 @@ export class Travel {
   arrivalAirport: string;
   arrivingFlight: string;
   purposeOfTravel: string;
+  timeUnit: string;
   durationOfStay: string;
   commercialGood: string;
   currencyExceedingValue: string;

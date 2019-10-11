@@ -46,11 +46,20 @@
                     <mat-error>{{mandatory}}</mat-error>
                 </mat-form-field>
 
-                <mat-form-field>
-                    <input formControlName="durationOfStay" matInput placeholder="{{durationOfStay}}">
-                    <mat-error>{{mandatory}}</mat-error>
+                <mat-form-field class="half">
+                    <mat-select formControlName="timeUnit" matNativeControl [(ngModel)]="selectedUnit" placeholder="{{timeUnit}}">
+                        <div *ngFor="let timeUnit of timeUnits">
+                            <mat-option value="{{timeUnit}}">{{timeUnit}}</mat-option>
+                        </div>
+                    </mat-select>
                 </mat-form-field>
 
+                <mat-form-field class="quater">
+                    <input formControlName="durationOfStay" [(ngModel)]="durationStay" matInput placeholder="{{durationOfStay}}">
+                    <mat-error>{{mandatory}}</mat-error>
+                </mat-form-field>
+                <ion-button class="round" [disabled]="isDisable" color="secondary" (click)="Minus()"><ion-icon name="remove"></ion-icon> </ion-button>
+                <ion-button color="primary" (click)="Add()"><ion-icon name="add"></ion-icon> </ion-button>
                 <br/>
 
                 <mat-label>{{commercialGood}} : </mat-label><br/>

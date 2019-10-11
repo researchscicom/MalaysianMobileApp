@@ -1,85 +1,85 @@
-  <mat-card-header>
-      <h4><span>{{service.form.controls['id'].value? profile2: profile}}</span></h4>
-    <span class="fill-remaining-space"></span>
-    <button class="btn-dialog-close" mat-stroked-button color="warn" (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
-  </mat-card-header>
+<mat-card-header>
+  <h4><span>{{service.form.controls['id'].value? profile2: profile}}</span></h4>
+<span class="fill-remaining-space"></span>
+<button class="btn-dialog-close" mat-stroked-button color="warn" (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-card-header>
 
-  <ion-content>
+<ion-content>
   <ion-infinite-scroll>
-  <mat-card>
-  <mat-card-content>
-    <form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
-        <input type="hidden" formControlName="id">
-        <mat-form-field>
-          <input formControlName="nickname" matInput placeholder="{{nickname}}">
-          <mat-error>{{mandatory}}</mat-error>
-        </mat-form-field>
-        <br/>
-        <mat-slide-toggle (change)="setMalaysian()" [checked]="isMalaysian">{{isMalay}}</mat-slide-toggle>
+      <mat-card>
+      <mat-card-content>
+        <form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
+            <input type="hidden" formControlName="id">
+            <mat-form-field>
+              <input formControlName="nickname" matInput placeholder="{{nickname}}">
+              <mat-error>{{mandatory}}</mat-error>
+            </mat-form-field>
+            <br/>
+            <mat-slide-toggle (change)="setMalaysian()" [checked]="isMalaysian">{{isMalay}}</mat-slide-toggle><br/><br/>
 
-        <mat-form-field>
-        <mat-select matNativeControl formControlName="nationality" [disabled]="isMalaysian" placeholder="{{nationality}}">
-            <div *ngFor="let nationality of nationalities">
-                <mat-option value="{{nationality}}">{{nationality}}</mat-option>
+            <mat-form-field>
+            <mat-select matNativeControl formControlName="nationality" [disabled]="isMalaysian" placeholder="{{nationality}}">
+                <div *ngFor="let nationality of nationalities">
+                    <mat-option value="{{nationality}}">{{nationality}}</mat-option>
+                </div>
+            </mat-select>
+                <mat-error>{{mandatory}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select matNativeControl formControlName="country"  placeholder="{{country}}">
+                <div *ngFor="let country of countries">
+                    <mat-option value="{{country}}">{{country}}</mat-option>
+                </div>
+              </mat-select>
+              <mat-error>{{mandatory}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input formControlName="travelDocNum" matInput placeholder="{{travelDocNo}}">
+                <mat-error *ngIf="service.form.controls['travelDocNum'].errors?.required">{{mandatory}}</mat-error>
+                <mat-error *ngIf="service.form.controls['travelDocNum'].errors?.pattern">TravelDocNum Should be Numeric</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input  [matDatepicker]="expiryDate" formControlName="expiryDate" matInput placeholder="{{expiryDate1}}">
+              <mat-datepicker-toggle matSuffix [for]="expiryDate"></mat-datepicker-toggle>
+              <mat-datepicker #expiryDate></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input formControlName="givenName" matInput placeholder="{{givenName}}">
+              <mat-error>{{mandatory}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+              <input formControlName="surname" matInput placeholder="{{surname}}">
+              <mat-error>{{mandatory}}</mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input  [matDatepicker]="dob" formControlName="dob" matInput placeholder="{{dob1}}">
+              <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+              <mat-datepicker #dob></mat-datepicker>
+            </mat-form-field>
+            <br/>
+            <mat-radio-group formControlName="gender" aria-label="Select an option">
+                <mat-radio-button value="Male">{{male}}</mat-radio-button>
+                <mat-radio-button value="Female">{{female}}</mat-radio-button>
+            </mat-radio-group>
+
+            <mat-form-field>
+              <input formControlName="identificationNo" matInput placeholder="{{identificationNo}}">
+                <mat-error *ngIf="service.form.controls['identificationNo'].errors?.required">{{mandatory}}</mat-error>
+                <mat-error *ngIf="service.form.controls['identificationNo'].errors?.pattern">IdentificationNo Should be Numeric</mat-error>
+            </mat-form-field>
+
+            <br/>
+            <div class="button-row">
+              <button mat-raised-button color="accent" type="submit" [disabled]="service.form.invalid">{{submit}}</button>
+              <button mat-raised-button color="warn" [disabled]="service.form.controls['id'].value" (click)="onClear()">{{clear}}</button>
             </div>
-        </mat-select>
-            <mat-error>{{mandatory}}</mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-select matNativeControl formControlName="country"  placeholder="{{country}}">
-            <div *ngFor="let country of countries">
-                <mat-option value="{{country}}">{{country}}</mat-option>
-            </div>
-          </mat-select>
-          <mat-error>{{mandatory}}</mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input formControlName="travelDocNum" matInput placeholder="{{travelDocNo}}">
-            <mat-error *ngIf="service.form.controls['travelDocNum'].errors?.required">{{mandatory}}</mat-error>
-            <mat-error *ngIf="service.form.controls['travelDocNum'].errors?.pattern">TravelDocNum Should be Numeric</mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input  [matDatepicker]="expiryDate" formControlName="expiryDate" matInput placeholder="{{expiryDate1}}">
-          <mat-datepicker-toggle matSuffix [for]="expiryDate"></mat-datepicker-toggle>
-          <mat-datepicker #expiryDate></mat-datepicker>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input formControlName="givenName" matInput placeholder="{{givenName}}">
-          <mat-error>{{mandatory}}</mat-error>
-        </mat-form-field>
-
-        <mat-form-field>
-          <input formControlName="surname" matInput placeholder="{{surname}}">
-          <mat-error>{{mandatory}}</mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <input  [matDatepicker]="dob" formControlName="dob" matInput placeholder="{{dob1}}">
-          <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
-          <mat-datepicker #dob></mat-datepicker>
-        </mat-form-field>
-        <br/>
-        <mat-radio-group formControlName="gender" aria-label="Select an option">
-            <mat-radio-button value="Male">{{male}}</mat-radio-button>
-            <mat-radio-button value="Female">{{female}}</mat-radio-button>
-        </mat-radio-group>
-
-        <mat-form-field>
-          <input formControlName="identificationNo" matInput placeholder="{{identificationNo}}">
-            <mat-error *ngIf="service.form.controls['identificationNo'].errors?.required">{{mandatory}}</mat-error>
-            <mat-error *ngIf="service.form.controls['identificationNo'].errors?.pattern">IdentificationNo Should be Numeric</mat-error>
-        </mat-form-field>
-
-        <br/>
-        <div class="button-row">
-          <button mat-raised-button color="accent" type="submit" [disabled]="service.form.invalid">{{submit}}</button>
-          <button mat-raised-button color="warn" [disabled]="service.form.controls['id'].value" (click)="onClear()">{{clear}}</button>
-        </div>
-    </form>
-  </mat-card-content>
-  </mat-card>
-  </ion-infinite-scroll>
+        </form>
+</mat-card-content>
+</mat-card>
+</ion-infinite-scroll>
 </ion-content>

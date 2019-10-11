@@ -9,6 +9,7 @@ import {NavController} from '@ionic/angular';
 })
 export class DashboardPage implements OnInit {
 
+  user;
   constructor(public navCtrl: NavController, private translate: TranslateService) { }
   public title;
   public button1;
@@ -34,6 +35,7 @@ export class DashboardPage implements OnInit {
   }
   ngOnInit() {
     this.language = localStorage.getItem('language');
+    this.user = localStorage.getItem('user');
     this._translateLanguage(this.language);
   }
 
@@ -50,6 +52,11 @@ export class DashboardPage implements OnInit {
     return this.navCtrl.navigateRoot('qrcode');
   }
   goHome() {
+    return this.navCtrl.navigateRoot('home');
+  }
+  logOut() {
+    localStorage.setItem('token', null);
+    localStorage.setItem('user', null);
     return this.navCtrl.navigateRoot('home');
   }
 }

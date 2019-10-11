@@ -1,4 +1,11 @@
 {
+  "login": {
+    "title": "Login",
+    "username": "Username",
+    "password": "Password",
+    "locationText": "Location",
+    "forget": "Forget Password"
+  },
   "terms" : {
     "title" 		: "Terms of Use",
     "description" 	: "The E-Landing Card app allows travellers to prepare their declaration on a mobile device prior to their arrival in Malaysia.",
@@ -84,6 +91,7 @@
     "arrivingFlight":"Arriving Flight",
     "purposeOfTravel":"Purpose of Travel",
     "durationOfStay":"Duration Of stay",
+    "timeUnit": "Time Unit",
     "commercialGood":"Commercial Goods",
     "currencyExceedingValue":"Currency Exceeding the value of 2000 USD",
     "liveAnimalOrPlant":"Live Animals or Plants",

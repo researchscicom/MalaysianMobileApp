@@ -33,22 +33,30 @@ export class QRCodePage implements OnInit {
   }
   createCode() {
       if (this.qrData != null) {
-          this.createdCode = this.qrData;
-          this.notificationService.success('QR Generated!');
+          this.profileService.getProfileByNickname(this.qrData).subscribe(data => {
+              const code = {
+                  travelDocNum : data.travelDocNum,
+                  nationality: data.nationality,
+                  createdDate: new Date()
+              }
+              this.createdCode = JSON.stringify(code);
+              this.notificationService.success('QR Generated!');
+          });
       } else {
           this.notificationService.warn('Please select the Nickname!');
       }
   }
   async scanCode() {
       this.barcodeScanner.scan().then(barcodeData => {
-         this.scannedCode = barcodeData.text;
-         this.travelService.getTravelByNickname(this.scannedCode).subscribe(async data => {
-             this.travelService.populateForm(data);
-             const modal = await this.modalController.create({
-                 component: QRCodeComponent
-             });
-             return await modal.present();
-          });
+         this.scannedCode = JSON.parse(barcodeData.text);
+         console.log('scanned : ', this.scannedCode);
+         // this.travelService.getTravelByNickname(this.scannedCode).subscribe(async data => {
+         //     this.travelService.populateForm(data);
+         //     const modal = await this.modalController.create({
+         //         component: QRCodeComponent
+         //     });
+         //     return await modal.present();
+         //  });
       });
   }
 }

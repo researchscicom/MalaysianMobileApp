@@ -24,8 +24,10 @@ export class DlcComponent implements OnInit {
     , 'Uzbekistan', 'Venezuela', 'Vietnam', 'Virgin Islands (US)', 'Yemen', 'Zambia', 'Zimbabwe'];
 
   airports = ['Malaysian', 'Indian', 'Sri Lankan', 'Chinese', 'Australian', 'Yudev', 'Latin', 'American', 'Britans'];
-
-  searchKey: string;
+  timeUnits = ['Days', 'Weeks', 'Months', 'Year'];
+  selectedUnit;
+  durationStay = 0;
+  isDisable = false;
   public travel;
   public travel2;
   public nickname;
@@ -34,6 +36,7 @@ export class DlcComponent implements OnInit {
   public arrivingFlight;
   public purposeOfTravel;
   public durationOfStay;
+  public timeUnit;
   public commercialGood;
   public currencyExceedingValue;
   public liveAnimalOrPlant;
@@ -60,6 +63,7 @@ export class DlcComponent implements OnInit {
       this.arrivingFlight = this.translate.instant('add-travel.arrivingFlight');
       this.purposeOfTravel = this.translate.instant('add-travel.purposeOfTravel');
       this.durationOfStay = this.translate.instant('add-travel.durationOfStay');
+      this.timeUnit = this.translate.instant('add-travel.timeUnit');
       this.commercialGood = this.translate.instant('add-travel.commercialGood');
       this.currencyExceedingValue = this.translate.instant('add-travel.currencyExceedingValue');
       this.liveAnimalOrPlant = this.translate.instant('add-travel.liveAnimalOrPlant');
@@ -79,10 +83,28 @@ export class DlcComponent implements OnInit {
     this.profileService.getProfiles().subscribe(data => {
       this.profiles = data;
     });
+    if (this.service.form.get('id').value) {
+      this.selectedUnit = this.service.form.get('timeUnit').value;
+      // tslint:disable-next-line:radix
+      this.durationStay = parseInt(this.service.form.get('durationOfStay').value);
+    }
   }
   onClear() {
     this.service.form.reset();
     this.service.initializeFormGroup();
+  }
+  Add() {
+    // tslint:disable-next-line:radix
+    this.durationStay = parseInt(String(this.durationStay)) + 1;
+    this.isDisable = false;
+  }
+  Minus() {
+    if (this.durationStay > 0) {
+      // tslint:disable-next-line:radix
+      this.durationStay = parseInt(String(this.durationStay)) - 1;
+    } else {
+      this.isDisable = true;
+    }
   }
 
   onSubmit() {
@@ -105,5 +127,4 @@ export class DlcComponent implements OnInit {
     this.service.initializeFormGroup();
     return await this.modalController.dismiss(null, undefined);
   }
-
 }

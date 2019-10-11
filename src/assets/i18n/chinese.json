@@ -1,4 +1,11 @@
 {
+  "login": {
+    "title": "登录",
+    "username": "用户名",
+    "password": "密码",
+    "locationText": "位置",
+    "forget": "忘记密码"
+  },
   "terms" : {
     "title" 		: "使用条款",
     "description" 	: "登陆卡应用程序允许旅行者在抵达马来西亚之前在移动设备上准备其声明。",
@@ -84,6 +91,7 @@
     "arrivingFlight":"到达航班",
     "purposeOfTravel":"旅行目的",
     "durationOfStay":"停留时间",
+    "timeUnit": "时间单位",
     "commercialGood":"商业商品",
     "currencyExceedingValue":"货币",
     "liveAnimalOrPlant":"超过2000美元的价值",
