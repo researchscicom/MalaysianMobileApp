@@ -12,6 +12,9 @@ export class DashboardPage implements OnInit {
   user;
   constructor(public navCtrl: NavController, private translate: TranslateService) { }
   public title;
+  public lang;
+  public settings;
+  public logout;
   public button1;
   public button2;
   public button3;
@@ -26,6 +29,9 @@ export class DashboardPage implements OnInit {
   private _initialiseTranslation(): void {
     setTimeout(() => {
       this.title 			  = this.translate.instant('dashboard.title');
+      this.lang 	= this.translate.instant('dashboard.lang');
+      this.settings 	= this.translate.instant('dashboard.settings');
+      this.logout 	= this.translate.instant('dashboard.logout');
       this.button1 	= this.translate.instant('dashboard.button1');
       this.button2 	= this.translate.instant('dashboard.button2');
       this.button3 	= this.translate.instant('dashboard.button3');

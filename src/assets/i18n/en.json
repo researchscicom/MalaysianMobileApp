@@ -43,6 +43,9 @@
   },
   "dashboard": {
     "title": "Dashboard",
+    "lang": "Language",
+    "settings": "Settings",
+    "logout": "Logout",
     "button1": "Traveller Profile",
     "button2": "E-learning Card",
     "button3": "QR Code",

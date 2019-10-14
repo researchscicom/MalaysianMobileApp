@@ -43,6 +43,9 @@
   },
   "dashboard": {
     "title": "Papan Pemuka",
+    "lang": "Bahasa",
+    "settings": "Tetapan",
+    "logout": "Log keluar",
     "button1": "Profil Traveler",
     "button2": "Kad E-pembelajaran",
     "button3": "Kod QR",

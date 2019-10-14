@@ -26,7 +26,7 @@ export class DlcComponent implements OnInit {
   airports = ['Malaysian', 'Indian', 'Sri Lankan', 'Chinese', 'Australian', 'Yudev', 'Latin', 'American', 'Britans'];
   timeUnits = ['Days', 'Weeks', 'Months', 'Year'];
   selectedUnit;
-  durationStay = 0;
+  durationStay = 1;
   isDisable = false;
   public travel;
   public travel2;
@@ -99,7 +99,7 @@ export class DlcComponent implements OnInit {
     this.isDisable = false;
   }
   Minus() {
-    if (this.durationStay > 0) {
+    if (this.durationStay > 1) {
       // tslint:disable-next-line:radix
       this.durationStay = parseInt(String(this.durationStay)) - 1;
     } else {
@@ -111,10 +111,10 @@ export class DlcComponent implements OnInit {
     if (this.service.form.valid) {
       if (this.service.form.get('id').value != null) {
         this.service.updateTravel(this.service.form.get('id').value, this.service.form.value).subscribe();
-        this.notificationService.success('Travel Update Successfully!');
+        this.notificationService.success('Profile Update Successfully!');
       } else {
         this.service.saveTravel(this.service.form.value).subscribe();
-        this.notificationService.success('New Travel added Successfully!');
+        this.notificationService.success('New Profile added Successfully!');
       }
       this.service.form.reset();
       this.service.initializeFormGroup();

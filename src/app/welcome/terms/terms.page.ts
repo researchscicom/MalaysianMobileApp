@@ -40,6 +40,7 @@ export class TermsPage implements OnInit {
   }
 
   nextPage() {
+    localStorage.setItem('token', 'null');
     return this.navCtrl.navigateRoot('instruction');
   }
   prevPage() {

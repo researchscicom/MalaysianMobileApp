@@ -27,9 +27,9 @@
 
   <ion-card *ngIf="createdCode">
     <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
-    <ion-card-content>
-      <p>ID : {{createdCode}}</p>
-    </ion-card-content>
+<!--    <ion-card-content>-->
+<!--      <p>ID : {{createdCode}}</p>-->
+<!--    </ion-card-content>-->
   </ion-card>
 
   <ion-card *ngIf="scannedCode">
@@ -38,13 +38,13 @@
       <p>Scanned : </p>
       <ion-list>
         <ion-item>
-          <ion-label>Travel Doc Num : {{scannedCode.travelDocNum}}</ion-label>
+          <ion-label>Travel Doc Num : <span><b>{{scannedCode.travelDocNum}}</b></span></ion-label>
         </ion-item>
         <ion-item>
-          <ion-label>Nationality : {{scannedCode.nationality}}</ion-label>
+          <ion-label>Nationality : <span><b>{{scannedCode.nationality}}</b></span></ion-label>
         </ion-item>
         <ion-item>
-          <ion-label>Created Date : {{scannedCode.createdDate}}</ion-label>
+          <ion-label>Created Date : <span><b>{{scannedCode.createdDate}}</b></span></ion-label>
         </ion-item>
       </ion-list>
     </ion-card-content>
