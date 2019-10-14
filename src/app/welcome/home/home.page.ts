@@ -19,14 +19,41 @@ export class HomePage {
 
   nextPageEn() {
     localStorage.setItem('language', 'en');
-    this.navCtrl.navigateRoot('terms');
+    if (localStorage.getItem('first') === 'skipped') {
+      // tslint:disable-next-line:triple-equals
+      if (localStorage.getItem('token') == 'null') {
+        this.navCtrl.navigateRoot('login');
+      } else {
+        this.navCtrl.navigateRoot('dashboard');
+      }
+    } else {
+      this.navCtrl.navigateRoot('terms');
+    }
   }
   nextPageChinese() {
     localStorage.setItem('language', 'chinese');
-    this.navCtrl.navigateRoot('terms');
+    if (localStorage.getItem('first') === 'skipped') {
+      // tslint:disable-next-line:triple-equals
+      if (localStorage.getItem('token') == 'null') {
+        this.navCtrl.navigateRoot('login');
+      } else {
+        this.navCtrl.navigateRoot('dashboard');
+      }
+    } else {
+      this.navCtrl.navigateRoot('terms');
+    }
   }
   nextPageMalay() {
     localStorage.setItem('language', 'malay');
-    this.navCtrl.navigateRoot('terms');
+    if (localStorage.getItem('first') === 'skipped') {
+      // tslint:disable-next-line:triple-equals
+      if (localStorage.getItem('token') == 'null') {
+        this.navCtrl.navigateRoot('login');
+      } else {
+        this.navCtrl.navigateRoot('dashboard');
+      }
+    } else {
+      this.navCtrl.navigateRoot('terms');
+    }
   }
 }

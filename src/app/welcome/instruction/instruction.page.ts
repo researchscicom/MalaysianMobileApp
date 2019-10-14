@@ -45,7 +45,12 @@ export class InstructionPage implements OnInit {
     return this.navCtrl.navigateRoot('dashboard');
   }
   prevPage() {
-    return this.navCtrl.navigateRoot('terms');
+    // tslint:disable-next-line:triple-equals
+    if (localStorage.getItem('token') != 'null') {
+      return this.navCtrl.navigateRoot('dashboard');
+    } else {
+      return this.navCtrl.navigateRoot('terms');
+    }
   }
   skipPage() {
     // tslint:disable-next-line:triple-equals
@@ -54,6 +59,7 @@ export class InstructionPage implements OnInit {
     } else {
       this.navCtrl.navigateRoot('login');
     }
+    localStorage.setItem('first', 'skipped');
   }
 
   slideChanged() {

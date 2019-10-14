@@ -43,6 +43,9 @@
   },
   "dashboard": {
     "title": "仪表板",
+    "lang": "语言",
+    "settings": "设定值",
+    "logout": "登出",
     "button1": "旅客资料",
     "button2": "电子学习卡",
     "button3": "二维码",
