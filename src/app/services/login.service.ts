@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 declare var blowfish;
-
+// @ts-ignore
+import user from '../../assets/user.json';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,13 +22,13 @@ export class LoginService {
   getLOVs() {
     return this.http.get(this.lovURL);
   }
-  login(data) {
-    const encryptedPassword = this.encrypt(data.password);
+  login() {
+    const encryptedPassword = this.encrypt(user.password);
     const httpOptions = {
       headers: new HttpHeaders({
-        username: data.userName,
+        username: user.username,
         password: encryptedPassword,
-        location: data.location,
+        location: user.location,
       }),
     };
     return this.http.post(this.loginBaseURL, null, httpOptions);
