@@ -1,9 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Router} from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {TranslateService} from '@ngx-translate/core';
 import {IonSlides, NavController} from '@ionic/angular';
-import {DashboardPage} from '../dashboard/dashboard.page';
 
 @Component({
   selector: 'app-instruction',
